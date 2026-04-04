@@ -1,0 +1,117 @@
+---
+title: Instalación en Ubuntu
+description: Verificación e instalación básica de Python en equipos con Ubuntu.
+slug: introduccion/entorno/instalacion-ubuntu
+sidebar:
+  label: Instalación en Ubuntu
+  order: 4
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+:::caution[Verificación importante]
+Antes de instalar Python, verifica que tu equipo tenga conexión a internet y permisos suficientes para instalar software. También es recomendable cerrar programas innecesarios antes de comenzar.
+:::
+
+## Objetivo
+
+Verificar si Python ya está disponible en Ubuntu e instalarlo, si es necesario, para ejecutar comandos básicos desde la terminal.
+
+## Concepto clave
+
+En Ubuntu, Python suele formar parte del sistema. Por eso, antes de instalarlo, conviene comprobar si ya está disponible y qué versión se encuentra instalada.
+
+## ¿Qué ruta seguiremos?
+
+En este documento primero verificaremos si Python ya está instalado.  
+Si no lo está, utilizaremos el gestor de paquetes del sistema para instalarlo desde los repositorios de Ubuntu.
+
+:::note[Recomendación]
+En Ubuntu, no conviene reemplazar ni eliminar la instalación de Python que viene con el sistema. Para este curso trabajaremos con la versión disponible mediante los paquetes oficiales.
+:::
+
+## Pasos de instalación
+
+<Steps>
+
+1. ##### Verificar si Python ya está instalado
+
+    Abre la terminal y ejecuta:
+
+    ```bash
+    python3 --version
+    ```
+
+    Si Python ya está disponible, el sistema mostrará su versión y no será necesario instalarlo nuevamente para continuar.
+
+    [IMAGEN: Terminal de Ubuntu mostrando python3 --version]
+
+2. ##### Actualizar la información de paquetes
+
+    Si Python no está disponible, actualiza primero la información de paquetes del sistema:
+
+    ```bash
+    sudo apt update
+    ```
+
+    Este paso permite que Ubuntu consulte las versiones más recientes disponibles en sus repositorios.
+
+3. ##### Instalar Python
+
+    Para este curso, la opción recomendada es instalar un entorno más completo con:
+
+    ```bash
+    sudo apt install -y python3-full
+    ```
+
+    Esta instalación incluye el intérprete de Python y componentes útiles para comenzar a trabajar con el lenguaje.
+
+    [IMAGEN: Terminal ejecutando sudo apt install -y python3-full]
+
+    :::tip[Importante]
+    En Ubuntu, `python3-full` suele ser más conveniente que una instalación mínima, porque incorpora herramientas adicionales útiles para el aprendizaje.
+    :::
+
+4. ##### Verificar la instalación
+
+    Una vez finalizada la instalación, vuelve a ejecutar:
+
+    ```bash
+    python3 --version
+    ```
+
+    Si la instalación fue exitosa, el sistema debería mostrar la versión instalada de Python.
+
+</Steps>
+
+## Probar el intérprete interactivo
+
+Después de verificar la versión, ejecuta:
+
+```bash
+python3
+```
+
+Si todo está correcto, debería abrirse el intérprete interactivo de Python. Allí puedes escribir:
+
+```python
+print("¡Hola Python!")
+```
+
+Si el texto aparece en pantalla, la instalación quedó operativa.
+
+[IMAGEN: Intérprete interactivo de Python abierto en la terminal de Ubuntu]
+
+## Cómo salir del intérprete
+
+Para salir del intérprete interactivo, puedes escribir:
+
+```python
+quit()
+```
+
+También puedes usar `Control-D`.
+
+:::caution[Error frecuente]
+Un error frecuente es intentar instalar o usar el comando `python` en lugar de `python3`. En Ubuntu, para este curso trabajaremos con `python3`, que es la forma estándar de invocar Python 3 desde la terminal.
+:::
