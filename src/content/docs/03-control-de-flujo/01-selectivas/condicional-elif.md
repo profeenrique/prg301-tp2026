@@ -170,7 +170,7 @@ Compáralo con esta idea:
 
 Ese orden convierte la lectura del programa en una secuencia lógica fácil de seguir.
 
-## Para ponerlo en práctica
+## Del concepto al código
 
 Escribe un programa en Python que solicite la edad de una persona y muestre un mensaje según uno de estos casos:
 

@@ -174,7 +174,7 @@ Este patrón es muy común en programación: primero se recibe información, des
 `input()` devuelve texto. Si necesitas comparar cantidades numéricas, primero debes convertir el dato con `int()` o `float()`, según corresponda.
 :::
 
-## Para ponerlo en práctica
+## Del concepto al código
 
 Escribe un programa en Python que solicite la nota final de una estudiante e informe si está aprobada, considerando que la aprobación se obtiene con nota mayor o igual a `4.0`.
 
