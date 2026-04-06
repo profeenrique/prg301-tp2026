@@ -1,6 +1,6 @@
 ---
 title: Entorno de trabajo
-description: ¿Qué es un entorno de trabajo en programación y por qué es necesario prepararlo antes de comenzar a programar?
+description: Qué es un entorno de trabajo en programación y por qué conviene prepararlo antes de comenzar a desarrollar programas.
 slug: introduccion/entorno
 sidebar:
   label: Entorno de trabajo
@@ -8,40 +8,35 @@ sidebar:
 ---
 
 :::note[Idea previa]
-Antes de instalar herramientas o ejecutar programas, es importante comprender qué elementos forman parte del entorno de trabajo que utilizaremos durante el curso.
+Antes de instalar herramientas o ejecutar programas, conviene comprender qué elementos forman parte del entorno de trabajo que utilizaremos durante el curso.
 :::
+
+Antes de escribir un programa, hace falta algo más que conocer un lenguaje. También es necesario contar con un espacio técnico que permita trabajar con cierta continuidad: escribir archivos, ejecutarlos, revisar resultados y corregir errores. A ese conjunto de herramientas y condiciones básicas lo llamamos **entorno de trabajo**.
 
 ## Objetivo
 
-Reconocer qué es un entorno de trabajo en programación e identificar los componentes básicos necesarios para comenzar a desarrollar programas en Python.
+Comprender qué es un entorno de trabajo en programación e identificar las herramientas básicas necesarias para comenzar a desarrollar programas en Python.
 
-## Concepto clave
+## Qué significa trabajar con un entorno
 
-Un entorno de trabajo es el conjunto de herramientas y configuraciones que permiten escribir, ejecutar, probar y corregir programas de manera ordenada.
+En programación, un entorno de trabajo no es un lugar físico, sino un conjunto de herramientas que permiten desarrollar código de forma ordenada. Su función no se limita a “tener dónde escribir”, sino a facilitar un proceso completo:
 
-## ¿Qué es un entorno de trabajo?
+- Escribir instrucciones
+- Guardar archivos
+- Ejecutar programas
+- Observar resultados
+- Corregir errores
+- Mantener el trabajo organizado
 
-En programación, no basta con conocer la sintaxis de un lenguaje. También es necesario contar con un conjunto mínimo de herramientas que permita desarrollar y ejecutar código de forma práctica.
-
-[IMAGEN: Esquema simple del entorno de trabajo con Python, Visual Studio Code y terminal]
-
-## ¿Por qué es importante?
-
-Contar con un entorno de trabajo bien preparado permite:
-
-- Escribir código de manera más ordenada
-- Ejecutar programas y revisar sus resultados
-- Detectar errores con mayor facilidad
-- Mantener archivos y carpetas organizados
-- Avanzar con menos dificultades técnicas al comenzar
+Dicho de otro modo, el entorno de trabajo es el punto de partida práctico desde el cual una persona programa.
 
 :::note[Idea clave]
-Preparar el entorno de trabajo no es un paso secundario. Es una parte inicial del proceso de programación.
+Un entorno de trabajo es el conjunto de herramientas y configuraciones que permiten escribir, ejecutar, probar y corregir programas de manera ordenada.
 :::
 
-## Herramientas que utilizaremos
+## Tres piezas básicas
 
-Durante esta unidad trabajaremos con las siguientes herramientas:
+En esta unidad trabajaremos con tres herramientas principales. Cada una cumple una función distinta dentro del proceso de programación.
 
 | Herramienta | Función principal |
 |---|---|
@@ -49,15 +44,62 @@ Durante esta unidad trabajaremos con las siguientes herramientas:
 | Visual Studio Code | Escribir, editar y organizar archivos de código. |
 | Terminal | Ejecutar comandos, abrir programas y verificar instalaciones. |
 
-## ¿Qué haremos a continuación?
+Más que herramientas aisladas, conviene pensarlas como partes de un mismo flujo de trabajo.
 
-El siguiente paso dependerá del sistema operativo disponible en tu equipo. Revisa el instructivo que corresponda y continúa con la instalación de Python.
+~~~mermaid
+flowchart LR
+    A[Escribir código en Visual Studio Code] --> B[Guardar archivo .py]
+    B --> C[Ejecutar desde Python]
+    C --> D[Observar salida o errores en la terminal]
+~~~
 
-- [Instalación en Windows](/introduccion/01-entorno/instalacion-windows)
-- [Instalación en macOS](/introduccion/01-entorno/instalacion-macos)
-- [Instalación en Ubuntu](/introduccion/01-entorno/instalacion-ubuntu)
+Este recorrido muestra una idea importante: programar no consiste solo en redactar código dentro de un editor. También implica ejecutarlo, interpretar su salida y volver a corregirlo cuando sea necesario.
 
-Después de instalar Python, continúa con la configuración de [Visual Studio Code](/introduccion/01-entorno/vs-code).
+## Por qué conviene prepararlo bien
+
+Cuando el entorno de trabajo está bien configurado, la atención puede centrarse en el aprendizaje del lenguaje y en la resolución de problemas. En cambio, si faltan herramientas o la configuración básica no funciona, aparecen dificultades técnicas que interrumpen el proceso desde el comienzo.
+
+Contar con un entorno preparado permite, por ejemplo:
+
+- Escribir código con mayor orden
+- Ejecutar programas y revisar sus resultados
+- Detectar errores con más facilidad
+- Mantener archivos y carpetas organizados
+- Avanzar con menos obstáculos técnicos al comenzar
+
+Esto no convierte al entorno en un tema secundario. Al contrario, preparar bien estas herramientas forma parte del aprendizaje inicial de programar.
+
+:::tip[Una idea importante]
+Preparar el entorno de trabajo no es un trámite externo al curso. Es parte del proceso de comenzar a programar con mayor autonomía.
+:::
+
+## Qué papel cumple cada herramienta
+
+Conviene entender con más precisión qué aporta cada una de estas piezas.
+
+### Python
+
+Python es el lenguaje con el que trabajarás, pero también es la herramienta que interpreta y ejecuta los programas que escribas. Por eso no basta con conocer su nombre: debe estar instalado y disponible en el equipo.
+
+### Visual Studio Code
+
+Visual Studio Code será el editor principal para escribir y organizar los archivos del curso. No “ejecuta Python” por sí solo, pero facilita mucho la escritura, lectura y corrección del código.
+
+### Terminal
+
+La terminal permite comunicarse con el sistema mediante comandos. En esta etapa será útil para comprobar instalaciones, desplazarse entre carpetas y ejecutar scripts simples.
+
+Miradas en conjunto, estas tres herramientas forman el núcleo del entorno de trabajo inicial.
+
+## Qué haremos en esta unidad
+
+A continuación, el siguiente paso será preparar este entorno según el sistema operativo disponible en tu equipo. Por eso, revisa el instructivo que corresponda y continúa con la instalación de Python:
+
+- [Instalación en Windows](./instalacion-windows)
+- [Instalación en macOS](./instalacion-macos)
+- [Instalación en Ubuntu](./instalacion-ubuntu)
+
+Después de instalar Python, continúa con la configuración de [Visual Studio Code](./vs-code).
 
 :::tip[Recomendación]
 Sigue solo el instructivo correspondiente a tu sistema operativo. No es necesario revisar los pasos de instalación de otras plataformas.

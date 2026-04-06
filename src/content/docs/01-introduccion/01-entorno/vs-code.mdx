@@ -10,32 +10,43 @@ sidebar:
 import { Steps } from '@astrojs/starlight/components';
 
 :::note[Verificación previa]
-Antes de instalar Visual Studio Code, verifica que Python ya se encuentre instalado en tu equipo y que puedes ejecutarlo desde la terminal.
+Antes de instalar Visual Studio Code, conviene comprobar que Python ya se encuentra instalado en tu equipo y que puede ejecutarse desde la terminal.
 :::
+
+Programar no depende solo del lenguaje. También requiere un espacio de trabajo que permita escribir código con comodidad, organizar archivos, ejecutar programas y detectar errores con mayor facilidad. En este curso utilizaremos **Visual Studio Code**, un editor que ofrece justamente ese entorno de trabajo inicial.
 
 ## Objetivo
 
-Instalar Visual Studio Code, abrir un espacio de trabajo inicial y configurar la extensión necesaria para comenzar a programar en Python.
+Instalar Visual Studio Code, preparar una carpeta de trabajo inicial y configurar los elementos básicos necesarios para comenzar a programar en Python.
 
-## Concepto clave
+## Qué es Visual Studio Code
 
-Visual Studio Code es un editor de código. Su función principal es permitir escribir, organizar y ejecutar archivos de manera más cómoda que en un editor de texto simple.
+Visual Studio Code, también conocido como **VS Code**, es un editor de código multiplataforma. Su función principal no es ejecutar Python por sí mismo, sino ofrecer un entorno más adecuado para escribir, revisar y organizar programas.
 
-## ¿Qué es Visual Studio Code?
-
-Visual Studio Code, también conocido como **VS Code**, es un editor de código multiplataforma utilizado para desarrollar programas en distintos lenguajes.
-
-El editor de código permite:
+Trabajar con un editor como este permite:
 
 - Escribir código con mayor claridad
 - Organizar archivos y carpetas del proyecto
 - Instalar extensiones para trabajar con Python
-- Usar la terminal integrada
+- Usar una terminal sin salir del editor
 - Detectar errores con mayor facilidad
 
 :::note[Importante]
 Visual Studio Code no reemplaza a Python. El editor sirve para escribir y organizar código, mientras que Python es el intérprete que lo ejecuta.
 :::
+
+## Qué prepararemos aquí
+
+En esta guía se realizará una configuración inicial orientada al trabajo del curso. Eso incluye:
+
+- Instalar Visual Studio Code
+- Reconocer las partes principales de su interfaz
+- Instalar la extensión de Python
+- Abrir una carpeta de trabajo
+- Crear un primer archivo `.py`
+- Ejecutarlo desde la terminal integrada
+
+La meta no es explorar todas las funciones del editor, sino dejarlo listo para comenzar a programar con una base ordenada.
 
 ## Instalación y configuración
 
@@ -49,26 +60,28 @@ Visual Studio Code no reemplaza a Python. El editor sirve para escribir y organi
 
 2. ##### Instalar Visual Studio Code
 
-   Ejecuta el instalador descargado y sigue el asistente correspondiente a tu sistema.
+    Ejecuta el instalador descargado y sigue el asistente correspondiente a tu sistema.
 
-   En la mayoría de los casos, la instalación por defecto es suficiente para comenzar a trabajar.
+    En la mayoría de los casos, la instalación por defecto es suficiente para comenzar a trabajar. Lo importante es completar correctamente el proceso y poder abrir el editor sin problemas.
 
 3. ##### Abrir VS Code por primera vez
 
-   Una vez terminada la instalación, abre Visual Studio Code. Al iniciar, verás una interfaz compuesta por varias zonas principales:
+    Una vez terminada la instalación, abre Visual Studio Code. Al iniciar, encontrarás varias zonas principales de la interfaz.
 
-   | Elemento | Función general |
-   |---|---|
-   | Explorador | Muestra archivos y carpetas del proyecto. |
-   | Editor | Permite escribir y modificar el contenido de los archivos. |
-   | Barra lateral | Da acceso a secciones como archivos, búsqueda y extensiones. |
-   | Terminal | Permite ejecutar comandos sin salir del editor. |
+    | Elemento | Función general |
+    |---|---|
+    | Explorador | Muestra archivos y carpetas del proyecto. |
+    | Editor | Permite escribir y modificar el contenido de los archivos. |
+    | Barra lateral | Da acceso a secciones como archivos, búsqueda y extensiones. |
+    | Terminal | Permite ejecutar comandos sin salir del editor. |
 
-   [IMAGEN: Interfaz principal de Visual Studio Code]
+    [IMAGEN: Interfaz principal de Visual Studio Code]
+
+    Esta primera revisión es importante porque ayuda a entender que el editor no es solo un espacio para escribir texto: también organiza el trabajo, conecta con la terminal y facilita la navegación por los archivos del proyecto.
 
 4. ##### Instalar extensiones recomendadas
 
-    Para trabajar de forma más cómoda en este curso, abre la sección **Extensions** en la barra lateral y revisa las siguientes extensiones.
+    Abre la sección **Extensions** en la barra lateral y revisa las siguientes extensiones.
 
     [IMAGEN: Vista de extensiones instaladas]
 
@@ -84,18 +97,18 @@ Visual Studio Code no reemplaza a Python. El editor sirve para escribir y organi
     - [Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner): Permite ejecutar archivos o fragmentos de código desde VS Code. Puede ser útil, pero en este curso seguiremos privilegiando la ejecución desde la terminal integrada.
 
     :::note[Recomendación]
-    Para este curso, la extensión más importante es **Python**. Las demás ayudan a mejorar la experiencia de uso, la lectura visual del editor y la detección de errores.
+    Para este curso, la extensión más importante es **Python**. Las demás mejoran la experiencia de uso, la lectura visual del editor y la detección de errores, pero no son imprescindibles para comenzar.
     :::
 
 5. ##### Aplicar algunos ajustes iniciales
 
-    Después de instalar las extensiones, es conveniente realizar algunos ajustes básicos para trabajar de forma más cómoda.
+    Después de instalar las extensiones, conviene realizar algunos ajustes básicos para trabajar de forma más cómoda.
 
     ###### Ajustes sugeridos
 
-    - desactivar **Explorer: Compact Folders** para visualizar las carpetas de forma separada;
-    - ocultar la carpeta `__pycache__` en el explorador;
-    - activar **Editor: Linked Editing** si más adelante también trabajarás con archivos que usan etiquetas, como HTML.
+    - Desactivar **Explorer: Compact Folders** para visualizar las carpetas de forma separada
+    - Ocultar la carpeta `__pycache__` en el explorador
+    - Activar **Editor: Linked Editing** si más adelante también trabajarás con archivos que usan etiquetas, como HTML
 
     :::tip[Buena práctica]
     Estos ajustes no cambian el funcionamiento de Python, pero sí mejoran la organización visual del entorno de trabajo.
@@ -105,7 +118,7 @@ Visual Studio Code no reemplaza a Python. El editor sirve para escribir y organi
 
     Si deseas aplicar estos ajustes manualmente desde `settings.json`, puedes usar una configuración como esta:
 
-    ```json
+    ~~~json
     {
       "explorer.compactFolders": false,
       "files.exclude": {
@@ -113,24 +126,24 @@ Visual Studio Code no reemplaza a Python. El editor sirve para escribir y organi
       },
       "editor.linkedEditing": true
     }
-    ```
+    ~~~
 
     [IMAGEN: Editor de configuración de VS Code mostrando los ajustes sugeridos]
 
 6. ##### Abrir una carpeta de trabajo
 
-    En lugar de trabajar con archivos aislados, es recomendable abrir una carpeta que funcionará como espacio de trabajo del proyecto.
+    En lugar de trabajar con archivos aislados, conviene abrir una carpeta que funcione como espacio de trabajo del proyecto.
 
     Para hacerlo:
 
-    - selecciona **File > Open Folder**;
-    - crea o elige una carpeta para tus archivos del curso;
-    - ábrela dentro de VS Code.
+    - Selecciona **File > Open Folder**
+    - Crea o elige una carpeta para tus archivos del curso
+    - Ábrela dentro de VS Code
 
     [IMAGEN: Opción “Open Folder” en Visual Studio Code]
 
     :::tip[Buena práctica]
-    Trabajar desde una carpeta permite organizar mejor tus archivos y facilita el uso de la terminal integrada.
+    Trabajar desde una carpeta permite organizar mejor los archivos y facilita el uso de la terminal integrada.
     :::
 
 7. ##### Crear un archivo Python
@@ -139,47 +152,66 @@ Visual Studio Code no reemplaza a Python. El editor sirve para escribir y organi
 
     Luego escribe el siguiente contenido:
 
-    ```python
+    ~~~python
     print("¡Hola Python!")
-    ```
+    ~~~
 
     Guarda el archivo.
 
 8. ##### Verificar el intérprete de Python
 
-    Con el archivo `hola.py` abierto, VS Code debería detectar o permitir seleccionar el intérprete de Python instalado en el sistema.
+    Con el archivo `hola.py` abierto, VS Code debería detectar el intérprete de Python instalado en el sistema o permitir seleccionarlo manualmente.
 
     Si es necesario, abre la paleta de comandos y busca la opción para seleccionar intérprete.
 
     [IMAGEN: Selección de intérprete de Python en VS Code]
 
-    Con un archivo `.py` abierto, VS Code debería detectar o permitir seleccionar el intérprete de Python instalado en el sistema.
+    Este paso es importante porque el editor necesita saber qué instalación de Python utilizará para trabajar con los archivos del proyecto.
 
-    Si es necesario, abre la paleta de comandos y busca la opción para seleccionar intérprete.
-
-    [IMAGEN: Selección de intérprete de Python en VS Code]
-
-9. ##### Abrir la terminal integrada
+9. ##### Abrir la terminal integrada y ejecutar el archivo
 
     Abre la terminal integrada desde el menú superior o con el atajo correspondiente a tu sistema.
 
     Una vez abierta, verifica que estás dentro de la carpeta de trabajo y ejecuta:
 
-    ```bash
+    ~~~bash
     python hola.py
-    ```
+    ~~~
 
     o, si tu sistema utiliza ese comando:
 
-    ```bash
+    ~~~bash
     python3 hola.py
-    ```
+    ~~~
 
     Si todo está correcto, deberías ver el mensaje en pantalla.
 
     [IMAGEN: Terminal integrada ejecutando hola.py]
 
 </Steps>
+
+## Qué deberías haber conseguido
+
+Al terminar esta configuración inicial, deberías contar con lo siguiente:
+
+- Visual Studio Code instalado y funcionando
+- La extensión de Python disponible en el editor
+- Una carpeta de trabajo abierta
+- Un archivo `.py` creado y guardado
+- La capacidad de ejecutar ese archivo desde la terminal integrada
+
+Eso significa que el editor ya quedó listo para comenzar a trabajar con los siguientes contenidos del curso.
+
+## Qué hacer si algo no funciona
+
+Si VS Code abre correctamente, pero el archivo no se ejecuta como esperas, conviene revisar primero estos puntos:
+
+- Si Python está instalado y puede ejecutarse desde la terminal
+- Si la extensión de Python está instalada y habilitada
+- Si el intérprete correcto fue seleccionado dentro del editor
+- Si la terminal está ubicada en la carpeta donde guardaste el archivo
+
+En muchos casos, el problema no está en el editor completo, sino en uno de estos pasos de conexión entre archivo, intérprete y terminal.
 
 :::caution[Error frecuente]
 Un error frecuente es pensar que instalar VS Code basta para programar en Python. Para trabajar correctamente también necesitas tener Python instalado y la extensión de Python habilitada dentro del editor.

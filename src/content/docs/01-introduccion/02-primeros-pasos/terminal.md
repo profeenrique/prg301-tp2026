@@ -8,39 +8,54 @@ sidebar:
 ---
 
 :::note[Verificación previa]
-Antes de continuar, comprueba lo siguiente:
-
-- Python ya está instalado en tu equipo.
-- Visual Studio Code ya está instalado.
-- Ya lograste crear y guardar un archivo `.py`.
+Antes de continuar, asegúrate de que Python y Visual Studio Code ya están instalados en tu equipo, y que puedes ejecutar un archivo `.py` simple con la instrucción `print()`.
 :::
+
+Hasta este punto, el trabajo con Python probablemente se ha concentrado en el editor: escribir una instrucción, guardar un archivo y observar el resultado. Sin embargo, para ejecutar programas y comprender mejor cómo se relacionan el archivo, el intérprete y el sistema operativo, es importante comenzar a usar la terminal.
 
 ## Objetivo
 
-Utilizar la terminal para ubicarse en una carpeta de trabajo y ejecutar archivos simples de Python.
+Comprender el papel de la terminal en el trabajo con Python y utilizar comandos básicos para ubicarse en una carpeta de trabajo y ejecutar archivos simples.
 
-## Concepto clave
+## Qué es la terminal
 
-La terminal es una herramienta que permite escribir comandos para interactuar directamente con el sistema operativo y ejecutar programas.
-
-## ¿Qué es la terminal?
-
-La terminal es una interfaz basada en texto. A través de ella es posible abrir carpetas, ejecutar programas, verificar instalaciones y trabajar con archivos sin depender únicamente de una interfaz gráfica.
+La terminal es una interfaz basada en texto que permite comunicarse directamente con el sistema operativo mediante comandos. A diferencia de una interfaz gráfica, aquí no se trabaja principalmente con botones o menús, sino escribiendo instrucciones que el sistema interpreta y ejecuta.
 
 En programación, la terminal es importante porque permite:
 
 - Ejecutar scripts
 - Comprobar que una herramienta está instalada
 - Moverse entre carpetas
+- Revisar archivos disponibles
 - Observar mensajes y errores del sistema
 
 :::note[Idea clave]
-La terminal no reemplaza al editor de código. Ambas herramientas se complementan.
+La terminal no reemplaza al editor de código. Ambas herramientas se complementan: el editor sirve para escribir y organizar archivos, mientras que la terminal permite ejecutarlos y trabajar con el sistema de forma más directa.
 :::
 
-## Comandos básicos
+## Por qué conviene aprender a usarla
 
-Aunque los comandos pueden variar según el sistema operativo, hay algunas acciones que conviene reconocer desde el inicio.
+Cuando comienzas a programar, puede parecer que basta con escribir el archivo y presionar algún botón del editor. Sin embargo, aprender a usar la terminal ayuda a comprender mejor qué está ocurriendo realmente cuando ejecutas un programa.
+
+Permite ver con más claridad la relación entre:
+
+- El archivo que escribes
+- La carpeta donde está guardado
+- El intérprete que ejecuta el programa
+- La salida o el error que aparece en pantalla
+
+~~~mermaid
+flowchart LR
+    A[Archivo .py] --> B[Terminal]
+    B --> C[Intérprete de Python]
+    C --> D[Salida o error en pantalla]
+~~~
+
+Esta relación es importante porque muchas tareas de programación dependen de ejecutar comandos de forma explícita y no solo desde una interfaz gráfica.
+
+## Qué tipo de acciones permite
+
+Aunque los comandos exactos pueden variar según el sistema operativo, hay algunas acciones que conviene reconocer desde el comienzo.
 
 | Acción | Ejemplo general |
 |---|---|
@@ -50,93 +65,126 @@ Aunque los comandos pueden variar según el sistema operativo, hay algunas accio
 | Listar archivos | `ls` o equivalente |
 | Cambiar de carpeta | `cd nombre_carpeta` |
 
-Supongamos que tienes un archivo llamado `hola.py` dentro de tu carpeta de trabajo. Si abres la terminal en esa carpeta y ejecutas:
+Lo importante en esta etapa no es memorizar todos los comandos posibles, sino comprender qué problema resuelve cada uno dentro del flujo de trabajo.
 
-```bash
-python hola.py
-```
+## Abrir la terminal
 
-O, según tu sistema:
-
-```bash
-python3 hola.py
-```
-
-El intérprete leerá el archivo y ejecutará las instrucciones que contiene.
-
-### Abrir la terminal
-
-Puedes abrir la terminal desde tu sistema operativo o usar la terminal integrada de Visual Studio Code.
+Puedes abrir la terminal desde el sistema operativo o usar la terminal integrada de Visual Studio Code.
 
 [IMAGEN: Terminal integrada abierta en Visual Studio Code]
 
-### Verificar en qué carpeta estás
+La terminal integrada resulta especialmente útil porque permite escribir código en el editor y ejecutar comandos en el mismo entorno de trabajo, sin cambiar de aplicación.
 
-Antes de ejecutar un archivo, conviene comprobar que la terminal está ubicada en la carpeta correcta. En algunos sistemas puedes usar:
+## Saber dónde estás
 
-```bash
+Antes de ejecutar un archivo, conviene comprobar en qué carpeta se encuentra abierta la terminal. Esto importa porque Python intentará buscar el archivo en la ubicación actual.
+
+En muchos sistemas, puedes usar:
+
+~~~bash
 pwd
-```
+~~~
 
-o un comando equivalente para mostrar la ruta actual.
+o un comando equivalente para mostrar la ruta activa.
 
-### Revisar los archivos disponibles
+Esta verificación es importante porque un programa puede estar bien escrito y bien guardado, pero no ejecutarse si la terminal está ubicada en otra carpeta.
 
-También puedes listar los archivos de la carpeta actual para comprobar que `hola.py` está ahí. En algunos sistemas puedes usar:
+## Ver qué archivos hay disponibles
 
-```bash
+También conviene revisar qué archivos se encuentran en la carpeta actual. En muchos sistemas, puedes usar:
+
+~~~bash
 ls
-```
+~~~
 
 o un comando equivalente.
 
-### Ejecutar el archivo
+Este paso ayuda a confirmar que el archivo que quieres ejecutar realmente está en esa ubicación. Si el archivo `hola.py` no aparece en la lista, entonces la terminal no podrá ejecutarlo desde ahí.
 
-Si el archivo está en la carpeta correcta, ejecútalo con:
+## Ejecutar un archivo Python
 
-```bash
+Supongamos que tienes un archivo llamado `hola.py` dentro de tu carpeta de trabajo. Si la terminal está ubicada correctamente, puedes ejecutarlo con uno de estos comandos:
+
+~~~bash
 python hola.py
-```
+~~~
 
-o:
+o, según tu sistema:
 
-```bash
+~~~bash
 python3 hola.py
-```
+~~~
 
-Si todo está correcto, el mensaje del programa aparecerá en pantalla.
+Cuando haces eso, el intérprete lee el archivo y ejecuta las instrucciones que contiene.
+
+Si todo está correcto, el resultado del programa aparecerá directamente en la terminal.
+
+## Un ejemplo simple
+
+Si `hola.py` contiene esto:
+
+~~~python
+print("¡Hola mundo!")
+~~~
+
+al ejecutarlo desde la terminal deberías ver algo como esto:
+
+~~~text
+¡Hola mundo!
+~~~
+
+[IMAGEN: Terminal mostrando la ejecución correcta de `hola.py`]
+
+Este ejemplo, aunque simple, permite comprobar varias cosas al mismo tiempo:
+
+- Que el archivo fue guardado correctamente
+- Que la terminal está en la carpeta adecuada
+- Que el comando de ejecución es válido
+- Que Python puede interpretar el contenido del archivo
+
+## Leer la salida también es parte del proceso
+
+Cuando ejecutas un script desde la terminal, la salida del programa aparece directamente allí. Eso permite observar con rapidez si el programa funcionó o si surgió algún problema.
+
+La terminal no solo muestra resultados correctos. También muestra errores, advertencias y mensajes del sistema. Por eso, aprender a usarla implica también acostumbrarse a leer lo que devuelve.
+
+## Cuando algo falla
+
+Muchos errores iniciales no se deben al contenido del programa, sino a problemas de ejecución desde la terminal. Por ejemplo:
+
+- La terminal está abierta en una carpeta distinta
+- El nombre del archivo fue escrito incorrectamente
+- El sistema requiere `python3` en lugar de `python`
+- El archivo no fue guardado antes de ejecutarse
 
 :::caution[Error frecuente]
 Un error frecuente es intentar ejecutar un archivo desde una carpeta distinta a aquella donde está guardado. Cuando eso ocurre, la terminal no encuentra el archivo y muestra un mensaje de error. También es frecuente usar `python` cuando el sistema requiere `python3`, o escribir mal el nombre del archivo.
 :::
 
-### Interpretar la salida
+## Una herramienta que da autonomía
 
-Cuando ejecutas un script desde la terminal, la salida del programa se muestra directamente allí. Esto permite verificar rápidamente si el programa funcionó o si apareció algún error.
+Aprender a usar la terminal desde el comienzo ayuda a construir una relación más consciente con el entorno de trabajo. Permite depender menos de botones automáticos y entender mejor cómo se ejecuta realmente un programa.
 
-[IMAGEN: Terminal mostrando la ejecución correcta de `hola.py`]
-
-## ¿Por qué es importante usar la terminal?
-
-Trabajar con la terminal permite comprender mejor la relación entre:
-
-- El archivo que escribes
-- La carpeta donde está guardado
-- El intérprete que ejecuta el programa
-- Y la salida que aparece en pantalla
-
-Esta relación es importante porque muchas tareas de programación dependen de ejecutar comandos de forma explícita.
+Esa autonomía será útil más adelante, porque muchas herramientas de desarrollo, instalación y prueba también se utilizan desde la terminal.
 
 :::tip[Buena práctica]
 Antes de ejecutar un archivo, verifica siempre su nombre y la carpeta en la que te encuentras.
 :::
 
-## Mini práctica
+## Del concepto al código
 
 Realiza las siguientes acciones:
 
-1. Abre la terminal integrada de Visual Studio Code.
-2. Comprueba en qué carpeta te encuentras.
-3. Verifica que el archivo `hola.py` esté disponible.
-4. Ejecuta el archivo con `python hola.py` o `python3 hola.py`.
-5. Observa el resultado que aparece en pantalla.
+1. Abre la terminal integrada de Visual Studio Code
+2. Comprueba en qué carpeta te encuentras
+3. Verifica que el archivo `hola.py` esté disponible
+4. Ejecuta el archivo con `python hola.py` o `python3 hola.py`
+5. Observa el resultado que aparece en pantalla
+
+Si quieres, puedes probar además qué ocurre cuando:
+
+- Ejecutas el archivo desde otra carpeta
+- Escribes mal su nombre
+- Modificas el mensaje dentro del archivo y vuelves a ejecutarlo
+
+Estas pruebas ayudan a comprender que la ejecución de un programa no depende solo del código, sino también del contexto desde el cual se está trabajando.

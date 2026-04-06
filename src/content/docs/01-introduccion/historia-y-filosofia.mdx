@@ -7,45 +7,47 @@ sidebar:
 ---
 
 :::note[Preparación]
-Para estudiar este contenido no se requieren conocimientos previos de programación. Solo es importante reconocer que un lenguaje de programación es una herramienta creada para expresar instrucciones de forma precisa y ejecutable por una computadora.
+No se requieren conocimientos previos de programación para estudiar este contenido. Basta con reconocer que un lenguaje de programación es una herramienta creada para expresar instrucciones de forma precisa y ejecutable por una computadora.
 :::
+
+Python no apareció solo como una solución técnica. También surgió como una propuesta sobre **cómo debería sentirse programar**: con claridad, con menos ruido sintáctico y con un estilo de escritura que favoreciera la lectura del código. Por eso, conocer su historia no es un detalle cultural aislado; ayuda a entender por qué el lenguaje funciona como funciona y por qué muchas de sus decisiones de diseño siguen siendo importantes al aprenderlo.
 
 ## Objetivo
 
-Reconocer el origen de Python e identificar los principios generales que orientan su diseño como lenguaje de programación.
+Reconocer el origen de Python y comprender los principios generales que orientan su diseño como lenguaje de programación.
 
-## Concepto clave
+## Una idea inicial
 
-Python es un lenguaje de programación de alto nivel, interpretado y multipropósito, diseñado para favorecer la legibilidad del código y la claridad al resolver problemas.
+Python es un lenguaje de programación de alto nivel y de propósito general, diseñado para favorecer la legibilidad del código y la claridad al resolver problemas. Esto significa que no solo busca que un programa funcione, sino también que pueda leerse, explicarse y mantenerse con mayor facilidad.
 
-## Historia de Python
+## De dónde viene Python
 
 Python fue creado por **Guido van Rossum** a fines de la década de 1980, y su primera publicación oficial ocurrió en 1991. Desde sus inicios, el lenguaje fue pensado como una alternativa que favoreciera la claridad, la simplicidad y la productividad al programar.
 
 ![Guido van Rossum](../../../assets/images/guido-van-rossum.png)
 
-El nombre **Python** proviene del grupo de comedia británico [Monty Python](https://es.wikipedia.org/wiki/Monty_Python). Este origen refleja una intención importante: Python fue concebido como un lenguaje claro, accesible y agradable de utilizar.
+El nombre **Python** proviene del grupo de comedia británico *Monty Python*. Ese origen no es un detalle trivial: muestra que el lenguaje no fue concebido como algo solemne o inaccesible, sino como una herramienta poderosa, pero también cercana y agradable de utilizar.
 
-Con el paso del tiempo, Python fue creciendo hasta convertirse en uno de los lenguajes más utilizados en educación, automatización, desarrollo web, análisis de datos, inteligencia artificial y muchas otras áreas.
+Con el tiempo, Python fue creciendo hasta convertirse en uno de los lenguajes más utilizados en educación, automatización, desarrollo web, análisis de datos, inteligencia artificial y muchas otras áreas.
 
-## ¿Por qué Python?
+## Por qué Python llamó la atención
 
-Python permite escribir programas de forma relativamente clara y con una sintaxis menos recargada que la de otros lenguajes. Esto facilita la lectura, el aprendizaje inicial y el mantenimiento del código.
+Una de las razones por las que Python se volvió tan influyente es que permite escribir programas con una sintaxis relativamente limpia y directa. Comparado con otros lenguajes, suele requerir menos elementos formales para expresar una idea básica.
 
-En términos generales, Python favorece:
+Eso no significa que Python “haga menos cosas”, sino que intenta expresar muchas de ellas con una escritura más clara. En términos generales, Python favorece:
 
 - Una sintaxis legible
 - Una escritura más directa
-- Una curva de entrada amigable
-- Una amplia comunidad y ecosistema de herramientas
+- Una entrada amigable para quienes comienzan
+- Un ecosistema amplio de herramientas y bibliotecas
 
-Estas características lo convierten en una buena opción para comenzar a programar, pero también en una herramienta profesional utilizada en múltiples contextos.
+Estas características explican por qué Python suele aparecer tanto en procesos de enseñanza como en contextos profesionales.
 
-## Filosofía del lenguaje
+## La legibilidad como decisión de diseño
 
-La filosofía de Python se relaciona fuertemente con la idea de que el código debe ser claro, comprensible y consistente. Programar no consiste solo en lograr que la máquina ejecute instrucciones, sino también en escribir soluciones que otras personas (o una misma persona en el futuro) puedan leer y entender.
+La filosofía de Python se relaciona fuertemente con una idea central: **el código debe poder leerse con claridad**. Programar no consiste únicamente en lograr que la máquina ejecute instrucciones. También consiste en escribir soluciones que otras personas —o una misma persona tiempo después— puedan entender sin dificultad innecesaria.
 
-En Python, la legibilidad no es un detalle secundario. Es una decisión de diseño. Esto se refleja en aspectos como:
+En Python, esta idea no aparece como una recomendación secundaria. Forma parte del diseño del lenguaje. Se refleja, por ejemplo, en aspectos como estos:
 
 - El uso de una sintaxis limpia
 - La importancia de la indentación
@@ -56,40 +58,67 @@ En Python, la legibilidad no es un detalle secundario. Es una decisión de dise�
 En Python, no basta con que el programa funcione. También importa que el código pueda leerse, comprenderse y mantenerse con claridad.
 :::
 
-Uno de los principios más conocidos asociados a Python es que **el código debe ser fácil de leer**. Esta idea ha influido en la forma en que se enseña y se utiliza el lenguaje.
+Este principio ayuda a explicar por qué Python suele sentirse ordenado desde las primeras líneas de código. La claridad no se deja completamente a elección de quien programa; el propio lenguaje empuja hacia una forma de escribir más estructurada.
 
-Parte importante de esta visión puede observarse en el **Zen de Python**, una colección de principios que resume la filosofía general del lenguaje. Si quieres profundizar en esta idea, revisa el documento [El Zen de Python](/recursos/el-zen-de-python/).
+## El Zen de Python
+
+Parte importante de esta visión puede reconocerse en el **Zen de Python**, una colección de principios que resume la filosofía general del lenguaje. Allí aparecen ideas que han influido fuertemente en su identidad, como la importancia de la simplicidad, la explicitud y la legibilidad.
+
+Más que un conjunto de reglas rígidas, el Zen de Python funciona como una orientación general sobre cómo pensar y escribir código en este lenguaje. Si quieres profundizar en esta idea, revisa el documento [El Zen de Python](/recursos/el-zen-de-python/).
 
 ## Python como primer lenguaje
 
 Python suele utilizarse como lenguaje de entrada al mundo de la programación porque permite concentrarse en la lógica del problema sin exigir demasiada complejidad sintáctica desde el inicio.
 
-Esto no significa que Python sea simple en un sentido limitado. Significa que permite comenzar a resolver problemas con menos barreras formales, lo que favorece el aprendizaje progresivo.
-
-Al trabajar con Python, una persona que recién comienza puede dedicar más atención a preguntas como estas:
+Esto es importante desde el punto de vista del aprendizaje. Cuando una persona recién comienza, necesita entender preguntas como estas:
 
 - ¿Qué problema quiero resolver?
-- ¿Qué datos necesito?
-- ¿Qué pasos debe seguir el programa?
+- ¿Qué datos necesita el programa?
+- ¿Qué pasos debe seguir?
 - ¿Cómo verifico si el resultado es correcto?
 
-## ¿Dónde se utiliza Python?
+Si la sintaxis se vuelve demasiado pesada desde el comienzo, parte de la atención se desplaza hacia detalles formales antes de comprender la lógica del programa. Python ayuda a reducir esa carga inicial y, por eso, facilita un aprendizaje más progresivo.
+
+## Un lenguaje para aprender y para construir
+
+A veces se piensa que Python sirve solo para comenzar a programar. Esa idea es equivocada. Python es un buen lenguaje para aprender, pero también es una herramienta ampliamente usada en contextos reales de desarrollo y automatización.
 
 :::tip[Importante]
-Un error frecuente es pensar que Python es un lenguaje básico o solo para principiantes. En la práctica, también se utiliza en sistemas reales, productos digitales e infraestructura profesional.
+Un error frecuente es pensar que Python es un lenguaje “solo para principiantes”. En la práctica, también se utiliza en productos, servicios e infraestructura profesional.
 :::
 
-| Organización | Uso general de Python |
-|---|---|
-| Instagram y Spotify | Servicios de *backend*, procesamiento de datos y soporte de alta demanda. |
-| Netflix | Automatización de infraestructura, seguridad y sistemas de recomendación. |
-| NASA | Procesamiento de datos científicos y automatización de tareas de ingeniería. |
+Su presencia en áreas como análisis de datos, desarrollo web, automatización, ciencia e inteligencia artificial muestra que se trata de un lenguaje formativo y profesional al mismo tiempo.
 
-Estos ejemplos muestran que Python no solo es útil para aprender a programar, sino también para desarrollar soluciones en contextos técnicos de gran escala.
+## Algunos ámbitos donde se utiliza
+
+Python aparece en contextos muy distintos. Esta diversidad ayuda a comprender por qué su aprendizaje resulta valioso.
+
+| Ámbito | Uso general |
+|---|---|
+| Educación | Aprendizaje inicial de programación y pensamiento computacional |
+| Automatización | Scripts para tareas repetitivas, procesamiento de archivos y flujos de trabajo |
+| Desarrollo web | Servicios, APIs y componentes de backend |
+| Ciencia de datos | Análisis, visualización y procesamiento de información |
+| Inteligencia artificial | Entrenamiento de modelos, experimentación y aplicaciones basadas en aprendizaje automático |
+
+Más que memorizar nombres de empresas o herramientas, aquí conviene retener una idea más general: Python se utiliza en muchos tipos de problemas porque combina legibilidad, flexibilidad y un ecosistema muy amplio.
+
+## Una forma de entender el lenguaje
+
+Conocer la historia y la filosofía de Python permite mirar el lenguaje con otra profundidad. Ya no se trata solo de aprender palabras reservadas o estructuras básicas, sino de entender que muchas decisiones del lenguaje responden a una visión concreta de la programación:
+
+- Escribir de forma clara
+- Reducir complejidad innecesaria
+- Favorecer la lectura del código
+- Resolver problemas con una sintaxis más directa
+
+Esa visión será visible una y otra vez a medida que avances en el curso.
 
 ## Documental recomendado
 
-[Python Documentary](https://www.youtube.com/watch?v=GfH4QL4VqJ0) (en inglés, con subtítulos disponibles). En este documental, Guido van Rossum comparte la historia de Python y su visión sobre el lenguaje.
+Si quieres complementar este contenido, puedes revisar el documental **Python Documentary**, donde Guido van Rossum comparte parte de la historia del lenguaje y su visión sobre Python.
+
+[Python Documentary](https://www.youtube.com/watch?v=GfH4QL4VqJ0)
 
 <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', borderRadius: '12px' }}>
   <iframe
@@ -103,8 +132,7 @@ Estos ejemplos muestran que Python no solo es útil para aprender a programar, s
   ></iframe>
 </div>
 
-
-## Mini práctica
+## Del concepto a la reflexión
 
 Responde brevemente:
 
@@ -112,3 +140,4 @@ Responde brevemente:
 2. ¿Qué rasgo distingue a Python frente a otros lenguajes?
 3. ¿Por qué la legibilidad del código es importante?
 4. ¿Por qué Python suele utilizarse como primer lenguaje?
+5. ¿Por qué no conviene considerarlo solo un lenguaje para principiantes?

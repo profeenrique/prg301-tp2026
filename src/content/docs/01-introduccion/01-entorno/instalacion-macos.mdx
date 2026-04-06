@@ -10,26 +10,42 @@ sidebar:
 import { Steps } from '@astrojs/starlight/components';
 
 :::caution[Verificación importante]
-Antes de instalar Python, verifica que tu equipo tenga conexión a internet y permisos suficientes para instalar software. También es recomendable cerrar programas innecesarios antes de comenzar.
+Antes de instalar Python, comprueba que tu equipo tenga conexión a internet y permisos suficientes para instalar software. También conviene cerrar programas innecesarios antes de comenzar.
 :::
+
+En macOS, una forma práctica y bastante utilizada para instalar herramientas de desarrollo es hacerlo desde la terminal mediante un gestor de paquetes. En esta guía trabajaremos con **Homebrew**, porque permite instalar Python de forma clara, reproducible y fácil de verificar.
 
 ## Objetivo
 
-Instalar Python en macOS mediante Homebrew y verificar que el intérprete quedó disponible para ejecutar comandos básicos desde la terminal.
+Instalar Python en macOS mediante Homebrew y comprobar que el intérprete quedó disponible para ejecutar comandos básicos desde la terminal.
 
-## Concepto clave
+## Qué significa instalar Python
 
-Python se ejecuta a través de un **intérprete**. Instalar Python significa incorporar ese intérprete al sistema para poder ejecutar scripts, usar la consola interactiva y trabajar posteriormente con otras herramientas del ecosistema.
+Cuando hablamos de instalar Python, nos referimos a incorporar al sistema el **intérprete** del lenguaje. Ese intérprete es el componente que permite ejecutar scripts, abrir la consola interactiva y trabajar más adelante con otras herramientas del ecosistema de Python.
 
-## ¿Qué utilizaremos en esta instalación?
+Dicho de otro modo, instalar Python no consiste solo en “tener el lenguaje”, sino en dejar listo el programa que leerá y ejecutará el código que escribas.
+
+:::note[Idea clave]
+Instalar Python significa dejar disponible en el sistema el intérprete que permitirá ejecutar programas escritos en este lenguaje.
+:::
+
+## Qué utilizaremos
 
 En este documento utilizaremos **Homebrew**, un gestor de paquetes ampliamente utilizado en macOS para instalar herramientas de desarrollo desde la terminal.
+
+Esto resulta útil porque permite realizar la instalación con comandos claros y verificar con facilidad qué versión quedó disponible en el equipo.
 
 :::note[Recomendación]
 Si Homebrew no está instalado en tu equipo, instálalo primero y luego continúa con este instructivo.
 :::
 
 [IMAGEN: Sitio oficial de Homebrew o terminal mostrando brew --version]
+
+## Antes de comenzar
+
+Conviene tener presente una diferencia importante: en macOS, al trabajar con Homebrew, lo habitual es utilizar el comando `python3` para ejecutar Python desde la terminal.
+
+Esto ayuda a distinguirlo de otras configuraciones posibles del sistema y evita confusiones al verificar la instalación.
 
 ## Pasos de instalación
 
@@ -39,20 +55,21 @@ Si Homebrew no está instalado en tu equipo, instálalo primero y luego continú
 
     Abre la terminal y ejecuta:
 
-    ```bash
+    ~~~bash
     brew --version
-    ```
+    ~~~
 
-    Si Homebrew está instalado, el sistema mostrará su versión.  
+    Si Homebrew está instalado, el sistema mostrará su versión.
+
     Si el comando no funciona, primero debes instalar [Homebrew](https://brew.sh/).
 
 2. ##### Instalar Python con Homebrew
 
     En la terminal, ejecuta:
 
-    ```bash
+    ~~~bash
     brew install python3
-    ```
+    ~~~
 
     Este comando descargará e instalará Python en tu equipo mediante Homebrew.
 
@@ -66,9 +83,9 @@ Si Homebrew no está instalado en tu equipo, instálalo primero y luego continú
 
     Una vez finalizada la instalación, ejecuta:
 
-    ```bash
+    ~~~bash
     python3 --version
-    ```
+    ~~~
 
     Si la instalación fue exitosa, el sistema debería mostrar la versión instalada de Python.
 
@@ -76,32 +93,61 @@ Si Homebrew no está instalado en tu equipo, instálalo primero y luego continú
 
 </Steps>
 
+## Verificar desde la terminal
+
+Esta comprobación no es un detalle secundario. Permite confirmar que Python no solo quedó instalado, sino que también puede invocarse correctamente desde la terminal.
+
+Si `python3 --version` muestra una versión válida, entonces el sistema ya reconoce el intérprete y está en condiciones de ejecutarlo.
+
 ## Probar el intérprete interactivo
 
 Después de verificar la versión, ejecuta:
 
-```bash
+~~~bash
 python3
-```
+~~~
 
 Si todo está correcto, debería abrirse el intérprete interactivo de Python. Allí puedes escribir:
 
-```python
+~~~python
 print("¡Hola Python!")
-```
+~~~
 
-Si el texto aparece en pantalla, la instalación quedó operativa.
+Si el mensaje aparece en pantalla, significa que la instalación quedó operativa y que el intérprete puede ejecutar instrucciones básicas sin problemas.
+
+Esta prueba es importante porque va un paso más allá de consultar la versión: demuestra que Python realmente puede iniciarse y procesar código.
 
 ## Cómo salir del intérprete
 
 Para salir del intérprete interactivo, puedes escribir:
 
-```python
+~~~python
 quit()
-```
+~~~
 
 También puedes usar `Control-D`.
 
+## Qué hacer si algo no funciona
+
+Si `python3 --version` no muestra la versión instalada o el comando no es reconocido, conviene revisar primero estos puntos:
+
+- Si Homebrew está correctamente instalado
+- Si la instalación de Python terminó sin errores
+- Si la terminal se abrió nuevamente después de instalar
+- Si el comando ejecutado fue `python3` y no `python`
+
+En muchos casos, el problema no está en la instalación completa, sino en usar un comando distinto del que corresponde a la configuración de macOS con Homebrew.
+
 :::caution[Error frecuente]
-Un error frecuente es asumir que Python quedó listo solo porque Homebrew terminó la instalación. Siempre debes comprobar el resultado desde la terminal ejecutando `python3 --version` y luego probando el intérprete interactivo.
+Un error frecuente es asumir que Python quedó listo solo porque Homebrew terminó la instalación. Siempre conviene comprobar el resultado desde la terminal ejecutando `python3 --version` y luego probando el intérprete interactivo.
 :::
+
+## Una verificación final útil
+
+Si tanto `python3 --version` como el intérprete interactivo funcionan correctamente, entonces el entorno ya quedó listo para continuar con la siguiente etapa del curso.
+
+A partir de aquí, el siguiente paso será configurar el editor con el que se trabajará durante la escritura de programas.
+
+## Para continuar
+
+Después de verificar la instalación de Python, continúa con la configuración de [Visual Studio Code](./vs-code).

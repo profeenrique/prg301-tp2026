@@ -10,18 +10,26 @@ sidebar:
 import { Steps } from '@astrojs/starlight/components';
 
 :::caution[Verificación importante]
-Antes de instalar Python, verifica que tu equipo tenga conexión a internet y permisos suficientes para instalar o ejecutar software. También es recomendable cerrar programas innecesarios antes de comenzar.
+Antes de instalar Python, comprueba que tu equipo tenga conexión a internet y permisos suficientes para instalar o ejecutar software. También conviene cerrar programas innecesarios antes de comenzar.
 :::
+
+Instalar Python no consiste solo en descargar un archivo y avanzar con “Siguiente”. También implica dejar el sistema preparado para poder ejecutar el intérprete desde la terminal y trabajar con normalidad en las siguientes unidades. Por eso, en esta guía no solo se revisará el proceso de instalación, sino también las verificaciones básicas que permiten confirmar que Python quedó realmente operativo.
 
 ## Objetivo
 
-Instalar Python en Windows y verificar que el intérprete quedó disponible para ejecutar comandos básicos desde la terminal.
+Instalar Python en Windows y comprobar que el intérprete quedó disponible para ejecutar comandos básicos desde la terminal.
 
-## Concepto clave
+## Qué significa instalar Python
 
-Python se ejecuta a través de un **intérprete**. Instalar Python significa incorporar ese intérprete al sistema para poder ejecutar scripts, usar la consola interactiva y trabajar posteriormente con otras herramientas del ecosistema.
+Cuando hablamos de instalar Python, en realidad nos referimos a incorporar al sistema el **intérprete** del lenguaje. Ese intérprete es el componente que permite ejecutar scripts, abrir la consola interactiva y trabajar más adelante con herramientas del ecosistema de Python.
 
-## ¿Desde dónde descargar Python?
+Dicho de otra forma, sin intérprete no basta con escribir código: el sistema necesita un programa capaz de leerlo y ejecutarlo.
+
+:::note[Idea clave]
+Instalar Python significa dejar disponible en el sistema el intérprete que permitirá ejecutar programas escritos en este lenguaje.
+:::
+
+## Desde dónde conviene descargarlo
 
 La fuente recomendada es el [sitio oficial de Python](https://www.python.org/downloads/).
 
@@ -31,15 +39,17 @@ Para este curso, utiliza siempre una instalación oficial. Evita descargar Pytho
 
 [IMAGEN: Página oficial de descarga de Python para Windows]
 
-## Ruta de instalación
+## Qué revisaremos en esta instalación
 
-En este documento utilizaremos el **instalador clásico de Windows**, ya que permite revisar con claridad las opciones más importantes del proceso de instalación.
+En este documento utilizaremos el **instalador clásico de Windows**, porque permite observar con claridad algunas decisiones importantes del proceso.
 
-En particular, prestaremos atención a estos elementos:
+En particular, conviene prestar atención a estos puntos:
 
 - La casilla para agregar Python al `PATH`
 - La opción **Customize installation**
 - La instalación para todos los usuarios del equipo, si corresponde
+
+Estos detalles no son secundarios. Influyen directamente en la forma en que Python quedará disponible dentro del sistema.
 
 ## Pasos de instalación
 
@@ -47,28 +57,30 @@ En particular, prestaremos atención a estos elementos:
 
 1. ##### Descargar el instalador
 
-    Ingresa al sitio oficial de Python, dirígete a la sección de descargas para Windows y descarga el instalador correspondiente a tu versión del sistema.
+    Ingresa al sitio oficial de Python, dirígete a la sección de descargas para Windows y descarga el instalador correspondiente a tu sistema.
+
+    Si tienes dudas sobre qué versión elegir, utiliza la versión estable recomendada en la página oficial.
 
 2. ##### Abrir el instalador
 
-    Ejecuta el archivo descargado. Al abrirse, revisa cuidadosamente las opciones disponibles en la ventana inicial.
+    Ejecuta el archivo descargado. Al abrirse, revisa con calma las opciones disponibles en la ventana inicial.
 
     [IMAGEN: Pantalla inicial del instalador de Python en Windows]
 
     :::caution[Atención]
-    Antes de continuar, marca la opción **Add python.exe to PATH**. Esta configuración facilita que Python pueda ejecutarse desde la terminal sin pasos adicionales.
+    Antes de continuar, marca la opción **Add python.exe to PATH**. Esta configuración permite ejecutar Python desde la terminal sin pasos adicionales y evita problemas frecuentes en la verificación posterior.
     :::
 
 3. ##### Elegir instalación personalizada
 
-    En esta guía trabajaremos con la opción **Customize installation**.
+    En esta guía utilizaremos la opción **Customize installation**.
 
-    ¿Por qué utilizaremos esta opción?
+    Esta opción resulta útil porque permite:
 
-    - Permite revisar con más detalle los componentes de la instalación
-    - Permite definir mejor la ubicación de instalación
-    - Permite preparar una instalación más adecuada para trabajar con Python
-    - Permite instalar Python para todos los usuarios del equipo (si corresponde)
+    - Revisar con más detalle los componentes de la instalación
+    - Controlar mejor algunas decisiones del proceso
+    - Preparar una instalación más adecuada para trabajar con Python en el curso
+    - Instalar Python para todos los usuarios del equipo, si corresponde
 
     [IMAGEN: Opción “Customize installation” seleccionada]
 
@@ -76,21 +88,21 @@ En particular, prestaremos atención a estos elementos:
 
     En la pantalla de características opcionales, mantén seleccionadas las opciones recomendadas por defecto.
 
-    Lo importante en este punto es avanzar sin desactivar componentes esenciales del intérprete.
+    En esta etapa, lo importante es no desactivar componentes esenciales del intérprete. Si no tienes un motivo claro para cambiar algo, conviene mantener la configuración sugerida por el instalador.
 
-5. ##### Configuración avanzada
+5. ##### Revisar opciones avanzadas
 
     En la pantalla de opciones avanzadas, revisa cuidadosamente las casillas disponibles.
 
-    Si el equipo será utilizado por varias personas y tienes permisos suficientes, marca la opción **Install for all users**.
+    Si el equipo será utilizado por varias personas y tienes permisos suficientes, puedes marcar la opción **Install for all users**.
 
     [IMAGEN: Pantalla de opciones avanzadas con “Install for all users” marcada]
 
-    :::note[¿Qué implica instalar para todos los usuarios?]
-    Cuando se instala Python para todos los usuarios, la instalación suele quedar disponible a nivel del sistema y no solo para una cuenta específica. Esto puede ser útil en equipos compartidos o institucionales.
+    :::note[Instalación para todos los usuarios]
+    Cuando Python se instala para todos los usuarios, suele quedar disponible a nivel del sistema y no solo para una cuenta específica. Esto puede ser útil en equipos compartidos o institucionales.
     :::
 
-6. ##### Finalizar la instalación
+6. ##### Completar la instalación
 
     Haz clic en **Install** y espera a que el proceso termine.
 
@@ -98,44 +110,74 @@ En particular, prestaremos atención a estos elementos:
 
 </Steps>
 
-## Verificación de la instalación
+## Verificar desde la terminal
 
-Una vez finalizada la instalación, abre una terminal de Windows y ejecuta:
+Una vez finalizada la instalación, no conviene asumir que todo quedó correcto solo porque el asistente terminó. El paso realmente importante es comprobar que Python pueda ejecutarse desde la terminal.
 
-```bash
+Abre una terminal de Windows y ejecuta:
+
+~~~bash
 python --version
-```
+~~~
 
 Si la instalación fue exitosa, el sistema debería mostrar la versión instalada de Python.
 
 [IMAGEN: Terminal de Windows mostrando python --version correctamente]
 
+Esta comprobación es importante porque confirma dos cosas al mismo tiempo:
+
+- que Python quedó instalado
+- que el sistema logra encontrarlo desde la terminal
+
 ## Probar el intérprete interactivo
 
 Después de verificar la versión, ejecuta:
 
-```bash
+~~~bash
 python
-```
+~~~
 
 Si todo está correcto, debería abrirse el intérprete interactivo de Python. Allí puedes escribir:
 
-```python
+~~~python
 print("¡Hola Python!")
-```
+~~~
 
-Si el texto aparece en pantalla, la instalación quedó operativa.
+Si el mensaje aparece en pantalla, significa que el intérprete está funcionando de manera correcta y ya puede ejecutar instrucciones básicas.
+
+Esta prueba es útil porque no se limita a confirmar que Python “existe” en el sistema, sino que demuestra que realmente puede ejecutarse.
 
 ## Cómo salir del intérprete
 
 Para salir del intérprete interactivo, puedes escribir:
 
-```python
+~~~python
 quit()
-```
+~~~
 
 También puedes usar `Control-Z` y luego presionar `Enter`.
+
+## Qué hacer si algo no funciona
+
+Si `python --version` no muestra la versión instalada o la terminal no reconoce el comando, conviene revisar primero estos puntos:
+
+- Si Python se instaló correctamente
+- Si la opción **Add python.exe to PATH** fue marcada
+- Si la terminal se abrió nuevamente después de instalar
+- Si el equipo requiere reiniciar la sesión o reiniciar Windows
+
+En muchos casos, el problema no está en la instalación completa, sino en que Python no quedó disponible en la variable `PATH`.
 
 :::caution[Error frecuente]
 Un error frecuente es asumir que Python quedó instalado solo porque el asistente terminó. La instalación debe comprobarse desde la terminal ejecutando `python --version` y luego probando el intérprete interactivo.
 :::
+
+## Una verificación final útil
+
+Si tanto `python --version` como el intérprete interactivo funcionan correctamente, entonces el entorno ya quedó listo para continuar con la siguiente etapa del curso.
+
+A partir de aquí, el siguiente paso será configurar el editor con el que se trabajará durante la escritura de programas.
+
+## Para continuar
+
+Después de verificar la instalación de Python, continúa con la configuración de [Visual Studio Code](./vs-code).
