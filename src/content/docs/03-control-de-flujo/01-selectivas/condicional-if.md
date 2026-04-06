@@ -8,30 +8,31 @@ sidebar:
 ---
 
 :::note[Verificación previa]
-Antes de continuar, asegúrate de manejar variables, `input()`, conversión básica de tipos con `int()` o `float()` y el uso de `print()` para mostrar resultados.
+Antes de continuar, asegúrate de que sabes trabajar con variables, puedes usar `input()` para capturar datos, comprendes la conversión básica con `int()` y `float()`, y sabes usar `print()` para mostrar información en pantalla. 
 :::
 
-Programar no consiste únicamente en ejecutar instrucciones una tras otra. En muchos problemas, el programa necesita **evaluar una situación** y decidir si debe realizar una acción. Esa capacidad de decidir vuelve al código más útil, más flexible y más cercano a problemas reales.
+Un programa no siempre debe hacer lo mismo en todas las situaciones. A veces necesita actuar solo si se cumple cierta condición: mostrar un mensaje, permitir el acceso, validar un dato o ejecutar un cálculo únicamente cuando corresponde. Esa capacidad de **tomar decisiones durante la ejecución** es una de las ideas que vuelve útil a la programación. En Python, una de las formas más directas de expresar esa lógica es mediante la estructura `if`.
 
 ## Objetivo
 
-Comprender cómo utilizar la estructura `if` para incorporar decisiones simples en programas de Python, a partir de condiciones que pueden evaluarse como verdaderas o falsas.
+Comprender cómo la estructura `if` permite evaluar una condición y ejecutar instrucciones solo cuando esa condición resulta verdadera.
 
-## Qué hace `if`
+## Cuando el programa debe decidir
 
-La estructura `if` permite indicar que un bloque de instrucciones debe ejecutarse **solo cuando se cumple una condición**. Esta idea es una de las bases del control de flujo, porque introduce una pregunta dentro del programa: **¿debe ocurrir esta acción o no?**
+Hasta este punto, es probable que hayas trabajado con programas donde las instrucciones se ejecutan una tras otra, en el orden en que fueron escritas. Ese comportamiento corresponde a un flujo secuencial. Sin embargo, muchos problemas no pueden resolverse únicamente siguiendo una secuencia fija de pasos.
 
-Cuando Python encuentra un `if`, primero evalúa la condición asociada. Si el resultado es verdadero, ejecuta el bloque indentado que depende de ella. Si el resultado es falso, omite ese bloque y continúa con la siguiente parte del programa.
-
-En términos prácticos, `if` permite construir programas que verifican, validan, comparan y reaccionan.
-
-Por ejemplo, un programa puede:
+Piensa en situaciones como estas:
 
 - Mostrar un mensaje solo si la asistencia es perfecta
 - Permitir el acceso únicamente si la edad cumple un mínimo
 - Indicar aprobación solo cuando la nota alcanza el valor requerido
+- Validar un dato solo si su contenido cumple cierta regla
 
-La forma general de esta estructura es la siguiente:
+En todos estos casos, el programa necesita evaluar una situación antes de actuar. No basta con ejecutar instrucciones de forma lineal, sino que es necesario incorporar una verificación que determine si se debe o no ejecutar cierto bloque de código.
+
+## La idea detrás de `if`
+
+La estructura `if` permite indicar que un bloque de instrucciones debe ejecutarse solo cuando se cumple una condición.
 
 ~~~python
 if condicion:
@@ -39,56 +40,56 @@ if condicion:
     instruccion_2
 ~~~
 
-En esta escritura conviene reconocer tres elementos:
+Esta forma breve concentra una idea muy importante de la programación: no toda instrucción debe ejecutarse siempre. Algunas acciones dependen del resultado de una verificación previa.
+
+En esta estructura conviene distinguir tres partes:
 
 - `if` es una palabra reservada del lenguaje
 - `condicion` es una expresión que Python puede evaluar
-- El bloque indentado contiene las instrucciones que se ejecutarán solo si la condición resulta verdadera
+- El bloque indentado contiene las instrucciones que solo se ejecutan si la condición es verdadera
 
-:::caution[Atención con la escritura]
-En Python, la indentación no es un detalle visual ni una recomendación de estilo. Forma parte de la sintaxis del lenguaje y define qué instrucciones pertenecen al bloque del `if`.
+:::note[Idea clave]
+La estructura `if` no pregunta “qué valor tiene este dato”, sino “¿se cumple esta condición?”. Solo si la respuesta es afirmativa, el bloque se ejecuta.
 :::
 
-## Una decisión en el flujo
+## Cómo cambia el flujo
 
-Hasta ahora, probablemente has construido programas donde todas las instrucciones se ejecutan en el orden en que fueron escritas. Ese comportamiento corresponde a un **flujo secuencial**. Sin embargo, muchos problemas no pueden resolverse únicamente siguiendo pasos fijos.
-
-En esos casos, el programa necesita detenerse un momento, evaluar una condición y actuar según el resultado.
+Una forma útil de comprender `if` es pensar que introduce una bifurcación en el recorrido del programa. A partir de ese punto, el código ya no sigue una única ruta obligatoria, sino que puede ejecutar o no cierto bloque según el resultado de la condición.
 
 ~~~mermaid
 flowchart TD
-    A[Programa en ejecución] --> B{¿Se cumple la condición?}
+    A[Programa en ejecución] --> B{¿La condición se cumple?}
     B -->|Sí| C[Ejecutar bloque del if]
     B -->|No| D[Omitir bloque]
     C --> E[Continuar programa]
     D --> E
 ~~~
 
-Este diagrama resume la idea central de `if`: **incorporar una decisión dentro del flujo del programa** sin interrumpir su continuidad.
+Este esquema resume la función central de `if`: incorporar una decisión dentro del flujo del programa sin interrumpir su continuidad.
 
-## Cómo decide Python
+## Cómo se lee una condición
 
 Una condición es una expresión cuyo resultado puede interpretarse como verdadero o falso. En muchos casos, esa evaluación se construye mediante comparaciones.
-
-Observa este ejemplo:
 
 ~~~python
 edad = 18
 
 if edad >= 18:
-    print("Puede votar.")
+    print("Cumple el requisito de edad.")
 ~~~
 
-Aquí, Python evalúa la expresión `edad >= 18`. Esa comparación produce un valor booleano: `True` o `False`.
+Aquí, Python evalúa la expresión `edad >= 18`. Esa comparación produce un valor booleano.
 
 - Si el resultado es `True`, se ejecuta la instrucción indentada
 - Si el resultado es `False`, esa instrucción se omite
 
-Esta idea es fundamental: `if` no decide por intuición, sino a partir del resultado de una expresión. Por eso, aprender a formular condiciones con claridad es tan importante como conocer la estructura misma.
+Lo importante no es memorizar la sintaxis, sino aprender a leer la lógica de la condición. En este caso, la expresión puede leerse así: “si la edad es mayor o igual a 18, entonces muestra el mensaje”.
 
-## Valor de verdad
+Esa forma de lectura ayuda mucho al construir condiciones más adelante, porque obliga a pensar primero en la regla y después en el código que la representa.
 
-Aunque en muchos casos una condición se formula mediante una comparación que produce `True` o `False`, Python también puede evaluar otros valores según su **valor de verdad**. Esto significa que ciertos datos se interpretan como verdaderos y otros como falsos cuando se utilizan dentro de una condición.
+## Más allá de `True` y `False`
+
+Aunque muchas condiciones se escriben a partir de comparaciones que producen `True` o `False`, Python también puede evaluar otros valores según su **valor de verdad**. Eso significa que ciertos datos se interpretan como verdaderos y otros como falsos cuando aparecen dentro de una condición.
 
 | Expresión | Interpretación | Comentario |
 | --- | --- | --- |
@@ -101,17 +102,15 @@ Aunque en muchos casos una condición se formula mediante una comparación que p
 | `""` | Falsa | Una cadena vacía se interpreta como falsa |
 | `[]` | Falsa | Una lista vacía se interpreta como falsa |
 
-Comprender esta idea ayuda a leer mejor las condiciones y a entender que Python no se limita a evaluar únicamente expresiones escritas de forma explícita como `True` o `False`.
+Este punto es especialmente importante porque muestra que una condición no se limita a las palabras `True` y `False`. Python puede evaluar expresiones, números, cadenas y otros valores según su comportamiento lógico.
 
-:::tip[Idea clave]
-Entender el valor de verdad de una expresión permite construir condiciones con mayor precisión y leer el código con más seguridad.
+:::tip[Lectura útil]
+Pensar en el valor de verdad de una expresión ayuda a escribir condiciones con más precisión y también a entender mejor por qué un bloque se ejecuta o no.
 :::
 
-## El bloque importa
+## La indentación delimita el bloque
 
-Una de las características más distintivas de Python es que la indentación define los bloques de código. En otros lenguajes, este papel suele cumplirlo un conjunto de llaves. En Python, en cambio, la sangría cumple esa función.
-
-Observa el siguiente caso:
+Una de las características más distintivas de Python es que la indentación no cumple solo una función visual. También define la estructura del programa.
 
 ~~~python
 temperatura = 31
@@ -123,15 +122,15 @@ if temperatura > 30:
 print("Fin del programa.")
 ~~~
 
-Aquí ocurre algo importante:
+En este fragmento, las dos instrucciones indentadas pertenecen al bloque del `if`. En cambio, `print("Fin del programa.")` queda fuera de la condición, por lo que se ejecuta siempre.
 
-- Las dos instrucciones indentadas pertenecen al bloque del `if`
-- La última línea queda fuera de la condición
-- Por eso, `print("Fin del programa.")` se ejecuta siempre
+Esto significa que la sangría no se usa solo para “ordenar bonito” el código. Sirve para delimitar con claridad qué instrucciones dependen de la condición y cuáles continúan después de ella.
 
-La indentación no solo organiza visualmente el programa. También comunica con precisión qué instrucciones dependen de una decisión y cuáles continúan fuera de ella.
+:::caution[Atención con la escritura]
+En Python, la indentación forma parte de la sintaxis del lenguaje. Si el bloque del `if` no está correctamente indentado, el programa producirá un error o no se comportará como esperas.
+:::
 
-## Un primer ejemplo
+## Una decisión concreta
 
 Supongamos que se desea informar si una estudiante tiene asistencia perfecta.
 
@@ -142,17 +141,17 @@ if asistencia == 100:
     print("Cumples con asistencia perfecta.")
 ~~~
 
-En este caso, el programa compara el valor almacenado en `asistencia` con `100`. Si ambos valores son iguales, la condición resulta verdadera y se muestra el mensaje.
+Aquí el programa compara el valor almacenado en `asistencia` con `100`. Si ambos valores coinciden, la condición se cumple y el mensaje se muestra en pantalla.
 
 ~~~text
 Cumples con asistencia perfecta.
 ~~~
 
-Este ejemplo muestra una idea esencial: `if` permite incorporar una decisión puntual dentro del programa sin volver compleja la estructura general.
+Este ejemplo permite ver con claridad la lógica de `if`: la acción no ocurre siempre, sino solo cuando la verificación resulta verdadera.
 
-## Cuando hay datos del usuario
+## Cuando la condición depende de la entrada
 
-En muchos programas, la condición no se evalúa sobre un valor escrito directamente en el código, sino sobre información proporcionada por el usuario.
+En muchos programas, la condición no se construye con un valor fijo escrito directamente en el código, sino con un dato proporcionado durante la ejecución.
 
 ~~~python
 edad = int(input("Ingresa tu edad: "))
@@ -161,31 +160,42 @@ if edad >= 12:
     print("Puedes ingresar a la actividad.")
 ~~~
 
-Aquí el proceso ocurre en varios pasos:
+Aquí ocurre una secuencia muy representativa de la programación básica:
 
-1. El programa solicita una edad mediante `input()`
+1. El programa solicita un dato mediante `input()`
 2. El dato ingresado se convierte a entero con `int()`
-3. Luego se evalúa la condición
-4. Si la edad es mayor o igual a `12`, se ejecuta la acción definida
+3. Se evalúa una condición sobre ese valor
+4. Si la condición se cumple, se ejecuta la acción correspondiente
 
-Este patrón es muy común en programación: primero se recibe información, después se interpreta y finalmente se toma una decisión.
+Esta estructura aparece una y otra vez en programas reales: pedir información, interpretarla y decidir qué hacer con ella.
 
 :::caution[Conversión de datos]
 `input()` devuelve texto. Si necesitas comparar cantidades numéricas, primero debes convertir el dato con `int()` o `float()`, según corresponda.
 :::
 
+## Pensar antes de escribir la condición
+
+Al comenzar, es común concentrarse demasiado en la sintaxis y olvidar la parte más importante: la lógica que la condición representa. Antes de escribir un `if`, conviene preguntarse:
+
+- ¿Qué situación quiero comprobar?
+- ¿Qué dato participa en esa decisión?
+- ¿Qué debe ocurrir si la condición se cumple?
+- ¿Qué parte del programa depende realmente de esa verificación?
+
+Estas preguntas ayudan a evitar condiciones confusas o mal planteadas. En el fondo, escribir un `if` no consiste solo en usar una estructura del lenguaje, sino en traducir una regla del problema a una forma que Python pueda evaluar.
+
 ## Del concepto al código
 
-Escribe un programa en Python que solicite la nota final de una estudiante e informe si está aprobada, considerando que la aprobación se obtiene con nota mayor o igual a `4.0`.
+Escribe un programa en Python que solicite la nota final de una estudiante e informe si está aprobada, considerando que la aprobación se obtiene con nota mayor o igual a `4.0`. 
 
-### Requisitos
+El programa debe cumplir con los siguientes requisitos:
 
 - Debe pedir la nota usando `input()`
 - Debe convertir el dato a `float`
 - Debe usar una estructura `if`
 - Debe mostrar el mensaje solo cuando la condición se cumpla
 
-### Ejemplo de interacción
+Cuando ejecutes el programa, debería funcionar de la siguiente manera:
 
 ~~~text
 Ingresa la nota final: 4.5
@@ -193,7 +203,7 @@ La estudiante está aprobada.
 ~~~
 
 :::tip[Antes de escribir el código]
-Identifica con claridad cuál es la entrada, qué condición se evaluará y qué acción ocurrirá si esa condición resulta verdadera.
+Identifica con claridad cuál es la entrada, qué condición debe evaluarse y qué acción se ejecutará si esa condición resulta verdadera.
 :::
 
 ## Para profundizar

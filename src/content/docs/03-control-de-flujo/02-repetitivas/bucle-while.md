@@ -8,20 +8,18 @@ sidebar:
 ---
 
 :::note[Verificación previa]
-Antes de continuar, asegúrate de comprender las estructuras `if`, el uso de comparaciones y la importancia de la indentación en Python.
+Antes de continuar, asegúrate de que comprendes la estructura `if`, sabes trabajar con comparaciones y reconoces la importancia de la indentación en Python.
 :::
 
-No todos los programas resuelven un problema con una sola secuencia de instrucciones. En muchos casos, una misma acción debe repetirse varias veces mientras una condición siga siendo válida. Ahí es donde el bucle `while` se vuelve necesario: permite repetir un bloque de código mientras una condición se mantenga verdadera.
+No todos los problemas se resuelven con una sola secuencia de instrucciones. En muchos casos, el programa necesita **repetir una acción mientras cierta condición siga siendo válida**. Esa idea aparece, por ejemplo, cuando se cuenta, se valida un dato, se espera una respuesta correcta o se repite un proceso hasta que algo cambie. En Python, una de las estructuras que permite expresar esa lógica es `while`.
 
 ## Objetivo
 
-Comprender cómo utilizar la estructura `while` para repetir instrucciones en Python mientras una condición se cumpla.
+Comprender cómo la estructura `while` permite repetir un bloque de instrucciones mientras una condición se mantenga verdadera, y cómo esa repetición puede utilizarse para modelar procesos, conteos y validaciones dentro de un programa.
 
-## Qué hace `while`
+## Repetir mientras algo siga ocurriendo
 
-La estructura `while` permite ejecutar un bloque de instrucciones de forma repetida. Antes de cada vuelta, Python evalúa una condición. Si la condición es verdadera, el bloque vuelve a ejecutarse. Si es falsa, el ciclo termina y el programa continúa con la siguiente instrucción.
-
-La forma general de esta estructura es la siguiente:
+La estructura `while` permite ejecutar un bloque de instrucciones una y otra vez mientras una condición continúe siendo verdadera.
 
 ~~~python
 while condicion:
@@ -29,38 +27,39 @@ while condicion:
     instruccion_2
 ~~~
 
-En esta escritura conviene reconocer tres elementos:
+Esta forma general concentra una idea muy importante: el programa no repite “porque sí”, sino **mientras una condición lo autorice**.
 
-- `while` es una palabra reservada del lenguaje
-- `condicion` es una expresión que Python evalúa antes de cada repetición
-- El bloque indentado contiene las instrucciones que se repetirán mientras la condición sea verdadera
+En esa escritura conviene reconocer tres partes:
 
-:::caution[Atención con la escritura]
-En Python, la indentación forma parte de la sintaxis. Si el bloque del `while` no está correctamente indentado, el programa producirá un error o no se comportará como esperas.
+- `while` es la palabra reservada que inicia el ciclo
+- `condicion` es la expresión que Python evalúa antes de cada repetición
+- el bloque indentado contiene las instrucciones que se repetirán mientras la condición resulte verdadera
+
+:::note[Idea clave]
+Un `while` no está definido por una cantidad fija de repeticiones, sino por una condición que se vuelve a comprobar una y otra vez.
 :::
 
-## Cómo avanza el ciclo
+## La condición manda
 
-Un bucle `while` no repite “por una cantidad fija de veces” de manera automática. Lo que hace es volver a ejecutar un bloque mientras la condición siga siendo verdadera. Por eso, dentro del ciclo normalmente debe ocurrir algo que modifique el estado del programa.
+A diferencia de otros tipos de repetición, `while` no sabe de antemano cuántas veces ejecutará su bloque. Todo depende de la condición.
 
-La lógica general puede resumirse así:
+Si la condición es verdadera, el ciclo continúa.  
+Si la condición pasa a ser falsa, el ciclo termina y el programa sigue con la instrucción que viene después.
 
 ~~~mermaid
 flowchart TD
     A[Inicio] --> B{¿La condición es verdadera?}
     B -->|Sí| C[Ejecutar bloque del while]
-    C --> D[Actualizar dato o estado]
+    C --> D[Volver a evaluar la condición]
     D --> B
     B -->|No| E[Salir del ciclo]
 ~~~
 
-Este recorrido ayuda a visualizar una idea central: en cada vuelta, el programa regresa a evaluar la condición. Si nada cambia, el ciclo puede continuar indefinidamente.
+Este recorrido permite entender algo central: la condición no se evalúa una sola vez al comienzo, sino antes de cada nueva vuelta del ciclo.
 
-## Contar paso a paso
+## Contar para avanzar
 
-Una forma muy común de trabajar con `while` es utilizar una variable de control, a menudo llamada contador. Su función es llevar registro del avance del ciclo.
-
-Observa este ejemplo:
+Una de las formas más claras de empezar a leer un `while` consiste en trabajar con un contador.
 
 ~~~python
 contador = 1
@@ -70,9 +69,16 @@ while contador <= 3:
     contador = contador + 1
 ~~~
 
-Aquí el valor de `contador` cambia en cada repetición. Ese cambio permite que la condición deje de cumplirse en algún momento.
+Aquí el programa comienza con `contador = 1`. Luego comprueba si `contador <= 3`. Como la condición es verdadera, imprime el valor y lo incrementa en una unidad.
 
-El resultado será:
+Después vuelve a comprobar la condición:
+
+- cuando `contador` vale `1`, imprime `1`
+- cuando vale `2`, imprime `2`
+- cuando vale `3`, imprime `3`
+- cuando pasa a valer `4`, la condición ya no se cumple y el ciclo termina
+
+En pantalla aparecen estos valores:
 
 ~~~text
 1
@@ -80,23 +86,23 @@ El resultado será:
 3
 ~~~
 
-Para leer mejor este tipo de ciclo, conviene distinguir sus partes principales.
+Este ejemplo deja ver una idea muy importante: un `while` necesita algo que cambie dentro del ciclo. Si el estado del programa no se modifica, la condición seguirá evaluándose igual y la repetición no avanzará.
 
-**Tabla 1. Elementos frecuentes en un bucle `while` con contador**
+## Qué hace que el ciclo funcione
 
-| Elemento | Función | Ejemplo |
+En un ciclo como el anterior conviene mirar tres piezas que trabajan juntas:
+
+| Parte | Función | Ejemplo |
 | --- | --- | --- |
-| Variable de control | Guarda el estado que permite revisar el avance | `contador = 1` |
-| Condición | Determina si el ciclo debe continuar | `contador <= 3` |
-| Actualización | Modifica el valor para evitar una repetición infinita | `contador = contador + 1` |
+| Valor inicial | Sitúa el punto de partida del ciclo | `contador = 1` |
+| Condición | Decide si el ciclo continúa o termina | `contador <= 3` |
+| Actualización | Modifica el valor para que el proceso avance | `contador = contador + 1` |
 
-Comprender estos elementos ayuda a escribir ciclos más claros y a detectar con mayor facilidad por qué un `while` continúa o termina.
+Esta estructura no sirve solo para contar. También aparece en muchas otras situaciones: desplazarse por un proceso, esperar una condición, validar entradas o repetir un cálculo.
 
-## Cuando el ciclo no termina
+## Cuando nada cambia
 
-Uno de los errores más frecuentes al comenzar a usar `while` es olvidar la actualización de la variable que controla la condición. Cuando eso ocurre, el ciclo puede continuar indefinidamente.
-
-Observa este caso:
+Uno de los errores más frecuentes al comenzar a usar `while` es olvidar la actualización de la variable que controla la condición.
 
 ~~~python
 contador = 1
@@ -105,15 +111,19 @@ while contador <= 3:
     print(contador)
 ~~~
 
-En este ejemplo, `contador` nunca cambia. Como la condición sigue siendo verdadera, el programa continúa repitiendo el bloque.
+Aquí la condición `contador <= 3` comienza siendo verdadera y sigue siéndolo, porque `contador` nunca cambia. Como no hay nada dentro del bloque que altere ese valor, Python vuelve a evaluar siempre la misma situación.
+
+El resultado es un ciclo que no termina por sí solo.
 
 :::danger[Evita el bucle infinito]
-Si la condición del `while` nunca deja de cumplirse, el ciclo no terminará. Por eso, conviene revisar siempre qué variable cambia dentro del bloque y cómo ese cambio afecta la condición.
+Si la condición del `while` sigue siendo verdadera y nada dentro del ciclo modifica esa situación, el bucle continuará indefinidamente.
 :::
 
-## Un caso simple
+Este punto merece atención porque muestra que escribir un `while` no consiste solo en poner una condición. También implica pensar **qué hará avanzar el proceso**.
 
-El bucle `while` también puede acompañar procesos que cambian paso a paso.
+## Un proceso paso a paso
+
+El bucle `while` no sirve únicamente para contar. También permite representar procesos que cambian gradualmente.
 
 ~~~python
 numero = 5
@@ -125,9 +135,9 @@ while numero > 0:
 print("Despegue")
 ~~~
 
-Aquí el ciclo se repite mientras `numero` sea mayor que `0`. En cada vuelta, el valor disminuye en una unidad.
+Aquí el programa no repite una acción arbitraria. Modela una cuenta regresiva. Mientras `numero` sea mayor que `0`, el ciclo sigue activo. En cada vuelta, el valor disminuye en una unidad.
 
-El resultado será:
+En pantalla se observa esta secuencia:
 
 ~~~text
 Cuenta regresiva: 5
@@ -138,11 +148,11 @@ Cuenta regresiva: 1
 Despegue
 ~~~
 
-Este ejemplo muestra que `while` no solo repite instrucciones: también permite representar procesos que avanzan gradualmente.
+Este ejemplo resulta interesante porque muestra que un `while` puede representar algo más que una repetición mecánica. Puede expresar el avance de un proceso, una transición o una espera hasta llegar a cierto punto.
 
-## Validar hasta acertar
+## Repetir hasta validar
 
-En muchos programas, el bucle `while` se utiliza para insistir hasta recibir un dato válido.
+Otra aplicación muy frecuente de `while` aparece cuando el programa necesita insistir hasta recibir un dato válido.
 
 ~~~python
 edad = int(input("Ingresa una edad válida: "))
@@ -153,41 +163,60 @@ while edad < 0:
 print("Edad registrada")
 ~~~
 
-Aquí el programa solicita una edad y revisa si el valor ingresado es menor que `0`. Si eso ocurre, vuelve a pedir el dato. El ciclo termina solo cuando la condición deja de cumplirse.
+Aquí el programa recibe una edad y comprueba si el valor es menor que `0`. Si lo es, la condición del ciclo se cumple y el programa vuelve a pedir el dato.
 
-Este patrón aparece con frecuencia en procesos de validación y muestra una de las aplicaciones más útiles de `while`: repetir hasta que la situación sea correcta.
+La lógica del proceso puede leerse así:
+
+- se ingresa una edad
+- si el valor no es válido, el programa no avanza
+- vuelve a pedir el dato
+- solo sale del ciclo cuando la edad deja de ser negativa
+
+Este patrón es muy importante en programación porque muestra que `while` no sirve únicamente para repetir “un número de veces”, sino para repetir **hasta que una situación cambie de manera satisfactoria**.
 
 :::caution[Conversión de datos]
 `input()` devuelve texto. Si necesitas comparar números dentro de un `while`, primero debes convertir el dato con `int()` o `float()`, según corresponda.
 :::
 
-## Cuándo conviene usarlo
+## Lo que conviene preguntarse antes de escribirlo
 
-El bucle `while` suele ser una buena elección cuando la repetición depende de una condición y no necesariamente de una cantidad fija de elementos.
+Antes de usar un `while`, conviene formular con claridad tres preguntas:
+
+- ¿Qué condición debe cumplirse para que el ciclo siga activo?
+- ¿Qué dato o estado controla esa condición?
+- ¿Qué ocurrirá dentro del bloque para que el ciclo avance y eventualmente termine?
+
+Estas preguntas ayudan a construir ciclos más correctos y también más legibles. Un `while` mal pensado puede funcionar por accidente o volverse difícil de entender. Uno bien planteado deja claro qué se repite, por qué se repite y qué hace que esa repetición termine.
+
+## Cuándo conviene usar `while`
+
+El bucle `while` suele ser una buena elección cuando la repetición depende de una condición y no de una cantidad fija conocida desde el comienzo.
 
 Suele ser apropiado cuando:
 
-- La repetición depende de un valor que cambia
-- El programa debe validar una entrada
-- La acción debe continuar hasta que ocurra cierta situación
-- No se conoce con anticipación cuántas repeticiones serán necesarias
+- la repetición depende de un valor que cambia
+- el programa debe validar una entrada
+- la acción debe continuar hasta que ocurra cierta situación
+- no se conoce con anticipación cuántas repeticiones serán necesarias
 
-:::tip[Idea clave]
-Usa `while` cuando la pregunta central del problema sea esta: “¿mientras esta condición se cumpla, qué debe seguir ocurriendo?”
+Si, en cambio, el recorrido ya está determinado desde el comienzo o depende de una secuencia conocida, `for` suele resultar más adecuado.
+
+:::tip[Lectura útil]
+Piensa `while` de esta manera: “mientras esta condición siga siendo verdadera, este bloque debe seguir ejecutándose”.
 :::
 
 ## Del concepto al código
 
 Escribe un programa en Python que solicite una contraseña y no permita avanzar hasta que el usuario escriba `python123`.
 
-### Requisitos
+El programa debe cumplir con los siguientes requisitos:
 
 - Debe pedir la contraseña usando `input()`
 - Debe usar un bucle `while`
 - Debe seguir solicitando el dato mientras la contraseña sea incorrecta
 - Debe mostrar un mensaje final cuando la contraseña sea correcta
 
-### Ejemplo de interacción
+Cuando ejecutes el programa, debería funcionar de la siguiente manera:
 
 ~~~text
 Ingresa la contraseña: hola
@@ -199,7 +228,7 @@ Acceso permitido
 ~~~
 
 :::tip[Antes de escribir el código]
-Identifica primero cuál será la condición del `while`, qué dato debe actualizarse en cada vuelta y en qué momento el ciclo debe terminar.
+Antes de programar, define con claridad cuál será la condición del `while`, qué dato cambiará en cada vuelta y en qué momento el ciclo deberá terminar.
 :::
 
 ## Para profundizar

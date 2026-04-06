@@ -8,28 +8,29 @@ sidebar:
 ---
 
 :::note[Verificación previa]
-Antes de continuar, asegúrate de comprender la estructura `if`, el uso de comparaciones y la importancia de la indentación en Python.
+Antes de continuar, asegúrate de que comprendes la estructura `if`, sabes trabajar con comparaciones y reconoces la importancia de la indentación en Python.
 :::
 
-En muchos problemas, una sola condición no basta. A veces el programa necesita evaluar más de una posibilidad y elegir qué acción realizar según el caso que se cumpla. En ese contexto, `elif` permite ampliar la toma de decisiones sin volver el código innecesariamente profundo o difícil de leer.
+No todos los problemas se resuelven con una sola decisión. A veces el programa no necesita elegir entre “hacer algo” o “no hacerlo”, sino entre varias posibilidades distintas. En esos casos, una sola condición resulta insuficiente. La cláusula `elif` permite ampliar la decisión sin perder claridad, porque organiza varios casos dentro de una misma estructura.
 
 ## Objetivo
 
-Comprender cómo utilizar la estructura `elif` para evaluar varias condiciones en orden y ejecutar solo el bloque correspondiente al primer caso verdadero.
+Comprender cómo `elif` permite evaluar varias condiciones en orden y seleccionar una única acción según el primer caso que resulte verdadero.
+
+## Cuando una sola condición no basta
+
+La estructura `if` resulta suficiente cuando el programa necesita comprobar una sola condición. Pero muchos problemas reales no tienen una única salida posible. Piensa en situaciones como estas:
+
+- Clasificar una nota en distintos niveles
+- Determinar una etapa de edad
+- Mostrar un mensaje según un rango de puntaje
+- Asignar una respuesta distinta según un valor ingresado
+
+En todos esos casos, el programa no se limita a preguntar “¿se cumple esta condición?”, sino que necesita revisar varias posibilidades relacionadas entre sí. Ahí aparece `elif`.
 
 ## Qué aporta `elif`
 
-La palabra reservada `elif` permite agregar nuevas condiciones a una estructura iniciada con `if`. Su propósito es ofrecer caminos alternativos cuando la primera condición no se cumple, pero todavía existen otros casos que deben evaluarse.
-
-En otras palabras, `elif` permite expresar algo como esto dentro del programa:
-
-- Si ocurre la primera condición, ejecuta esta acción
-- Si no ocurre, revisa esta otra
-- Si tampoco ocurre, revisa una más
-
-Esta estructura resulta especialmente útil cuando un problema tiene varios resultados posibles y cada uno depende de una condición distinta.
-
-La forma general es la siguiente:
+La cláusula `elif` permite agregar nuevas condiciones a una estructura iniciada con `if`. Su función es ofrecer caminos alternativos cuando la primera condición no se cumple, pero todavía existen otros casos que deben evaluarse.
 
 ~~~python
 if condicion_1:
@@ -40,28 +41,39 @@ elif condicion_3:
     instruccion_3
 ~~~
 
-En esta organización conviene notar algo importante: Python evalúa las condiciones **de arriba hacia abajo**. En cuanto encuentra una condición verdadera, ejecuta ese bloque y deja de revisar las demás.
+Esta forma de escribir el código introduce una idea importante: el programa recorre una serie de posibilidades y se detiene en la primera que corresponde.
 
-:::tip[Idea clave]
-En una estructura con `if` y `elif`, no se ejecutan todos los bloques verdaderos. Python ejecuta solamente el primero cuya condición se cumple.
+En esta estructura conviene reconocer lo siguiente:
+
+- `if` abre la primera condición
+- `elif` agrega condiciones adicionales dentro de la misma decisión
+- cada bloque indentado representa la acción asociada a un caso posible
+
+:::note[Idea clave]
+En una estructura con `if` y `elif`, Python no ejecuta todos los bloques verdaderos. Ejecuta solo el primero cuya condición se cumple.
 :::
 
 ## Una decisión con varios caminos
 
-La diferencia principal entre `if` y `elif` está en la cantidad de caminos que puede tomar el programa. Con `if`, el programa decide si ejecuta o no un bloque. Con `elif`, además puede seguir evaluando otras posibilidades cuando la primera condición no se cumple.
+La diferencia principal entre `if` y `elif` no está solo en la sintaxis, sino en la lógica que permiten representar.
 
-Esto resulta muy útil en situaciones como estas:
+Con `if`, el programa decide si ejecuta o no un bloque.  
+Con `elif`, en cambio, el programa puede seguir evaluando otras posibilidades cuando la primera no se cumple.
 
-- Clasificar una nota
-- Determinar una categoría de edad
-- Mostrar un mensaje distinto según un puntaje
-- Asignar una acción según el valor ingresado
+~~~mermaid
+flowchart TD
+    A[Inicio] --> B{¿Se cumple la primera condición?}
+    B -->|Sí| C[Ejecutar bloque del if]
+    B -->|No| D{¿Se cumple la siguiente condición?}
+    D -->|Sí| E[Ejecutar bloque del elif]
+    D -->|No| F[Seguir evaluando otros casos]
+~~~
 
-Cuando un problema tiene más de dos posibles resultados, `elif` ayuda a mantener el código más claro que usar varios `if` independientes.
+Este recorrido muestra una idea central: la estructura no revisa todos los caminos al mismo tiempo, sino uno tras otro, en el orden en que fueron escritos.
 
-## El orden sí importa
+## El orden no es un detalle
 
-Observa el siguiente ejemplo:
+En `elif`, el orden de las condiciones forma parte del significado del programa. No basta con que las comparaciones sean correctas; también importa dónde están ubicadas.
 
 ~~~python
 nota = 5.8
@@ -74,29 +86,29 @@ elif nota < 4.0:
     print("Nivel insuficiente")
 ~~~
 
-En este caso, Python sigue este orden:
+Aquí Python sigue esta secuencia:
 
-1. Evalúa si `nota >= 6.0`
-2. Si esa condición no se cumple, evalúa si `nota >= 4.0`
-3. Si tampoco se cumple, evalúa si `nota < 4.0`
+1. Comprueba si `nota >= 6.0`
+2. Si no se cumple, comprueba si `nota >= 4.0`
+3. Si tampoco se cumple, revisa si `nota < 4.0`
 
-Como la nota es `5.8`, la primera condición resulta falsa y la segunda resulta verdadera. Por eso, el programa imprime:
+Como la nota vale `5.8`, la primera condición resulta falsa y la segunda verdadera. Por eso, el programa muestra:
 
 ~~~text
 Nivel suficiente
 ~~~
 
-No sigue evaluando la tercera condición, porque ya encontró un caso válido.
+La tercera condición ya no se evalúa, porque el programa encontró un caso válido antes.
+
+Esta es una de las ideas más importantes del tema: en una estructura con `elif`, el resultado depende tanto de las condiciones escritas como del orden en que aparecen.
 
 :::caution[Atención al orden]
-El orden de las condiciones puede cambiar el resultado del programa. Por eso, conviene escribir primero los casos más específicos o más restrictivos.
+El orden de las condiciones puede cambiar el resultado del programa. Por eso, conviene escribir primero los casos más específicos, más restrictivos o más altos, según la lógica del problema.
 :::
 
-## Un mismo dato, varios resultados
+## Un mismo dato, varios rangos
 
-Una de las aplicaciones más frecuentes de `elif` consiste en comparar un mismo dato con distintos criterios. Eso permite clasificar o interpretar un valor sin repetir estructuras separadas.
-
-Observa este ejemplo:
+Una de las aplicaciones más frecuentes de `elif` consiste en comparar un mismo dato con distintos tramos o rangos.
 
 ~~~python
 temperatura = 12
@@ -109,23 +121,29 @@ elif temperatura < 30:
     print("Hace calor")
 ~~~
 
-Aquí todas las condiciones se relacionan con el mismo dato: `temperatura`. Sin embargo, el resultado final depende del primer tramo que se cumpla.
+Aquí todas las condiciones se construyen sobre el mismo valor: `temperatura`. Sin embargo, no todas se interpretan de forma aislada. Cada una depende de que las anteriores no se hayan cumplido.
 
-Este tipo de escritura permite representar rangos de valores con bastante claridad, siempre que las condiciones estén bien ordenadas.
+Esa es la razón por la que `temperatura < 20` no significa simplemente “cualquier temperatura menor que 20”, sino “una temperatura menor que 20 que no entró ya en el tramo anterior”.
 
-## `elif` no reemplaza cualquier estructura
+Ese matiz hace que `elif` resulte muy útil para clasificar datos por intervalos, siempre que el orden de los casos esté bien pensado.
 
-Aunque `elif` es muy útil, no debe usarse por costumbre en cualquier situación. Su valor aparece cuando realmente existe una secuencia de casos que deben evaluarse uno tras otro.
+## Elegir mejor la estructura
 
-Por ejemplo, si solo necesitas verificar una condición, basta con `if`. Si necesitas evaluar varios caminos excluyentes, `elif` resulta apropiado. Y si necesitas comparar un mismo valor con muchos casos muy concretos, más adelante puede ser conveniente explorar `match`.
+Aunque `elif` es muy útil, no conviene usarlo por costumbre en cualquier situación. Su valor aparece cuando varias condiciones forman parte de una misma decisión y solo uno de los resultados debe ejecutarse.
 
-:::note[Una decisión bien escrita]
-Usar `elif` tiene sentido cuando las condiciones forman parte de una misma decisión y solo uno de los resultados debe ejecutarse.
+Por ejemplo:
+
+- Si solo necesitas verificar una condición, basta con `if`
+- Si necesitas evaluar varios caminos excluyentes, `elif` resulta apropiado
+- Si necesitas comparar un mismo valor con muchos casos concretos, `match-case` puede ser una alternativa interesante
+
+:::tip[Buena decisión]
+Usa `elif` cuando varias condiciones pertenezcan a una misma clasificación o a una misma secuencia de alternativas.
 :::
 
-## Un ejemplo más cercano a un problema real
+## Cuando la entrada cambia la decisión
 
-Supongamos que se desea clasificar el rendimiento de una estudiante según su nota final.
+En muchos programas, las condiciones no se aplican sobre valores escritos directamente en el código, sino sobre datos ingresados durante la ejecución.
 
 ~~~python
 nota = float(input("Ingresa la nota final: "))
@@ -138,63 +156,63 @@ elif nota >= 1.0:
     print("Rendimiento insuficiente")
 ~~~
 
-En este ejemplo, el programa:
+Aquí el programa realiza varias tareas encadenadas:
 
-1. Solicita una nota al usuario
+1. Solicita una nota mediante `input()`
 2. Convierte el dato a `float`
 3. Evalúa las condiciones en orden
-4. Muestra el mensaje correspondiente al primer caso que se cumple
+4. Ejecuta la acción correspondiente al primer caso verdadero
 
-Si la estudiante ingresa `5.2`, el programa mostrará:
+Si la estudiante ingresa `5.2`, el programa muestra:
 
 ~~~text
 Rendimiento satisfactorio
 ~~~
 
-La utilidad de `elif` se aprecia con claridad: el programa puede distinguir entre varios escenarios sin recurrir a estructuras innecesariamente anidadas.
+Este ejemplo deja ver con claridad por qué `elif` resulta útil: permite distinguir entre varios escenarios posibles sin recurrir a decisiones separadas o anidadas innecesariamente.
 
 :::caution[Conversión de datos]
-Si el valor ingresado representa una cantidad numérica, recuerda convertirlo antes de compararlo. `input()` devuelve texto.
+Si el valor ingresado representa una cantidad numérica, conviene convertirlo antes de compararlo. `input()` devuelve texto.
 :::
 
-## Comparar no es lo mismo que anidar
+## No es lo mismo que anidar
 
-Al comenzar, a veces se intenta resolver este tipo de problemas escribiendo varios `if` separados o anidando decisiones innecesariamente. Sin embargo, cuando los casos son excluyentes y pertenecen a una misma clasificación, una secuencia con `if` y `elif` suele ser más clara.
+Al comenzar, a veces se intenta resolver este tipo de problemas escribiendo varios `if` independientes o anidando estructuras sin necesidad. Sin embargo, cuando los casos son excluyentes y pertenecen a una misma clasificación, una secuencia con `if` y `elif` suele ser más clara.
 
-Compáralo con esta idea:
+La razón es que su lectura ya trae una lógica incorporada:
 
-- Primero se revisa el caso más alto
-- Si no se cumple, se revisa el siguiente
-- Después se revisa otro
+- Primero se revisa una posibilidad
+- Si no corresponde, se revisa la siguiente
+- Luego otra
 - Y así sucesivamente
 
-Ese orden convierte la lectura del programa en una secuencia lógica fácil de seguir.
+Esa progresión hace que la estructura sea más fácil de leer, explicar y corregir.
 
 ## Del concepto al código
 
 Escribe un programa en Python que solicite la edad de una persona y muestre un mensaje según uno de estos casos:
 
-- Si la edad es menor que `12`, mostrar `Niñez`
-- Si la edad es menor que `18`, mostrar `Adolescencia`
-- Si la edad es menor que `60`, mostrar `Adultez`
-- Si la edad es `60` o mayor, mostrar `Persona mayor`
+- Si la edad es menor que `12`, mostrar `Eres niño/a.`
+- Si la edad es menor que `18`, mostrar `Eres adolescente.`
+- Si la edad es menor que `60`, mostrar `Eres adulto/a.`
+- Si la edad es `60` o mayor, mostrar `Eres adulto/a mayor.`
 
-### Requisitos
+El programa debe cumplir con los siguientes requisitos:
 
 - Debe solicitar la edad usando `input()`
 - Debe convertir el dato a `int`
 - Debe usar `if`, `elif` y `else`
 - Debe mostrar un solo resultado
 
-### Ejemplo de interacción
+Cuando ejecutes el programa, debería funcionar de la siguiente manera:
 
 ~~~text
 Ingresa tu edad: 15
-Adolescencia
+Eres adoslecente.
 ~~~
 
 :::tip[Antes de escribir el código]
-Piensa primero en el orden de las condiciones. En ejercicios de clasificación, ese detalle suele ser más importante que la escritura misma del `elif`.
+Piensa primero en el orden de las condiciones. En ejercicios de clasificación, ese detalle suele ser más importante que la escritura misma de `elif`.
 :::
 
 ## Para profundizar
