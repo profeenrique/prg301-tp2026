@@ -5,7 +5,7 @@ import starlight from "@astrojs/starlight";
 // https://astro.build/config
 export default defineConfig({
 	site: "https://profeenrique.github.io/",
-	base: "/prg301-tp2026/",
+	base: "/prg301/",
 	integrations: [
 		starlight({
 			title: "Programación y Algoritmos",
